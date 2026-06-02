@@ -712,9 +712,20 @@
 
     // ==================== CALENDAR ====================
     function getDatesWithRecords() {
+      var today = getTodayStr();
+      var fiveYearsAgo = shiftDate(today, -1825);   // ~5 years back
+      var oneYearAhead = shiftDate(today, 365);     // 1 year ahead
       var dates = {};
-      data.fitness.forEach(function(r) { dates[r.date] = true; });
-      data.diet.forEach(function(r) { dates[r.date] = true; });
+      data.fitness.forEach(function(r) {
+        if (r.date >= fiveYearsAgo && r.date <= oneYearAhead) {
+          dates[r.date] = true;
+        }
+      });
+      data.diet.forEach(function(r) {
+        if (r.date >= fiveYearsAgo && r.date <= oneYearAhead) {
+          dates[r.date] = true;
+        }
+      });
       return dates;
     }
 
