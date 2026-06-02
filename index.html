@@ -219,6 +219,14 @@
       font-weight: 700;
     }
 
+    .calendar-range-warning {
+      text-align: center;
+      font-size: 12px;
+      color: #8e8e93;
+      padding: 6px 0 4px;
+      user-select: none;
+    }
+
     /* ===== Tabs ===== */
     .tabs {
       display: flex;
@@ -711,18 +719,24 @@
     }
 
     // ==================== CALENDAR ====================
-    function getDatesWithRecords() {
+    function getFiveYearRange() {
       var today = getTodayStr();
-      var fiveYearsAgo = shiftDate(today, -1825);   // ~5 years back
-      var oneYearAhead = shiftDate(today, 365);     // 1 year ahead
+      return {
+        start: shiftDate(today, -1825),  // ~5 years back
+        end:   shiftDate(today, 365)     // 1 year ahead
+      };
+    }
+
+    function getDatesWithRecords() {
+      var range = getFiveYearRange();
       var dates = {};
       data.fitness.forEach(function(r) {
-        if (r.date >= fiveYearsAgo && r.date <= oneYearAhead) {
+        if (r.date >= range.start && r.date <= range.end) {
           dates[r.date] = true;
         }
       });
       data.diet.forEach(function(r) {
-        if (r.date >= fiveYearsAgo && r.date <= oneYearAhead) {
+        if (r.date >= range.start && r.date <= range.end) {
           dates[r.date] = true;
         }
       });
@@ -786,6 +800,13 @@
         }
       }
 
+      // Check if displayed month is outside 5-year range
+      var range = getFiveYearRange();
+      var monthLastDay = new Date(year, month + 1, 0).getDate();
+      var monthEnd = formatCalendarDate(year, month, monthLastDay);
+      var monthStart = formatCalendarDate(year, month, 1);
+      var outOfRange = monthEnd < range.start || monthStart > range.end;
+
       // Build HTML
       var html = '';
 
@@ -796,6 +817,11 @@
       html += '<button class="calendar-nav-btn" data-cal-action="prev" aria-label="上月">◀</button>';
       html += '<button class="calendar-nav-btn" data-cal-action="next" aria-label="下月">▶</button>';
       html += '</div></div>';
+
+      // Range warning
+      if (outOfRange) {
+        html += '<div class="calendar-range-warning">不展示 5 年前的数据</div>';
+      }
 
       // Weekdays
       html += '<div class="calendar-weekdays">';
@@ -1031,12 +1057,16 @@
 
       form.innerHTML = html;
 
-      // Listen for date changes to filter records list
+      // Listen for date changes — full sync with calendar
       var dateInput = form.querySelector('input[name="date"]');
       if (dateInput) {
         dateInput.addEventListener('change', function() {
           filterDate = dateInput.value;
-          renderRecords();
+          var p = filterDate.split('-');
+          calendarYear = parseInt(p[0], 10);
+          calendarMonth = parseInt(p[1], 10) - 1;
+          cancelEdit();
+          render();
         });
       }
 
