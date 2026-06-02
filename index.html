@@ -796,7 +796,7 @@
         if (c.isToday) cls += ' today';
         if (c.hasData) cls += ' has-records';
         if (c.isSelected) cls += ' selected';
-        html += '<div class="' + cls + '" data-date="' + c.date + '"' + (c.other ? '' : ' data-cal-date') + '>';
+        html += '<div class="' + cls + '" data-date="' + c.date + '"' + (c.other ? '' : ' data-cal-date="1"') + '>';
         html += c.day;
         html += '</div>';
       });
