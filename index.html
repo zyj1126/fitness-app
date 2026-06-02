@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="fitness - 个人健身和饮食记录">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='44' y='12' width='12' height='76' rx='4' fill='black'/><rect x='6' y='6' width='38' height='14' rx='5' fill='black'/><rect x='6' y='42' width='38' height='14' rx='5' fill='black'/><rect x='6' y='78' width='38' height='14' rx='5' fill='black'/><rect x='56' y='6' width='38' height='14' rx='5' fill='black'/><rect x='56' y='42' width='38' height='14' rx='5' fill='black'/><rect x='56' y='78' width='38' height='14' rx='5' fill='black'/></svg>">
+  <title>fitness</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --text: #1d1d1f;
+      --text-secondary: #86868b;
+      --text-tertiary: #aeaeb2;
+      --border: #e5e5ea;
+      --accent: #000000;
+      --danger: #ff3b30;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+      --radius-sm: 10px;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    /* ===== App Container ===== */
+    .app {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 16px 120px;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px 0 8px;
+    }
+
+    .header .logo {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      user-select: none;
+    }
+
+    /* ===== Date Filter Bar ===== */
+    .date-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 12px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .date-filter-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .date-filter-input {
+      flex: 1;
+      border: none;
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      -webkit-appearance: none;
+      color-scheme: light;
+      min-height: 36px;
+    }
+
+    .date-filter-nav {
+      display: flex;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .date-nav-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .date-nav-btn:active {
+      background: #e5e5ea;
+      transform: scale(0.94);
+    }
+
+    /* ===== Tabs ===== */
+    .tabs {
+      display: flex;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 4px;
+      margin: 12px 0 16px;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      position: relative;
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .tab:active {
+      transform: scale(0.96);
+    }
+
+    /* ===== Form Card ===== */
+    .form-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 4px 0;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .form-card.editing {
+      box-shadow: 0 0 0 2px var(--accent), var(--shadow-md);
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      min-height: 44px;
+    }
+
+    .form-row + .form-row {
+      border-top: 1px solid var(--border);
+    }
+
+    .form-label {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 400;
+      flex-shrink: 0;
+      width: 80px;
+    }
+
+    .form-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      text-align: right;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .form-input[type="date"] {
+      color-scheme: light;
+    }
+
+    .form-select {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      text-align: right;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      padding-right: 4px;
+    }
+
+    .form-unit {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-left: 6px;
+      flex-shrink: 0;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      min-height: 44px;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+      opacity: 0.85;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--danger);
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    /* ===== Section Header ===== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px 8px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-count {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== Records List ===== */
+    .records-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .record-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .record-card:active {
+      transform: scale(0.985);
+      background: #f9f9fb;
+    }
+
+    .record-card.editing-highlight {
+      box-shadow: 0 0 0 2px var(--accent), var(--shadow-md);
+    }
+
+    .record-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .record-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .record-date {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .record-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .record-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .record-delete {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text-tertiary);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .record-delete:active {
+      background: rgba(255,59,48,0.1);
+      color: var(--danger);
+    }
+
+    /* ===== Empty State ===== */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-tertiary);
+    }
+
+    .empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .empty-text {
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    /* ===== Clear Button ===== */
+    .clear-section {
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+
+    .clear-btn {
+      background: none;
+      border: none;
+      color: var(--danger);
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 10px 20px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .clear-btn:active {
+      opacity: 1;
+    }
+
+    /* ===== Summary Bar ===== */
+    .summary-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px calc(12px + var(--safe-bottom));
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .summary-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .summary-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.3px;
+    }
+
+    .summary-label {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    .summary-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ===== Toast / Notification (for edit feedback) ===== */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .record-card {
+      animation: slideUp 0.3s ease-out;
+    }
+
+    /* ===== Scrollbar Hide ===== */
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 380px) {
+      .form-label {
+        width: 68px;
+        font-size: 14px;
+      }
+      .record-title {
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 481px) {
+      .summary-bar {
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="44" y="12" width="12" height="76" rx="4" fill="black"/>
+        <rect x="6" y="6" width="38" height="14" rx="5" fill="black"/>
+        <rect x="6" y="42" width="38" height="14" rx="5" fill="black"/>
+        <rect x="6" y="78" width="38" height="14" rx="5" fill="black"/>
+        <rect x="56" y="6" width="38" height="14" rx="5" fill="black"/>
+        <rect x="56" y="42" width="38" height="14" rx="5" fill="black"/>
+        <rect x="56" y="78" width="38" height="14" rx="5" fill="black"/>
+      </svg>
+      <h1>fitness</h1>
+    </header>
+
+    <!-- Date Filter Bar -->
+    <div class="date-filter-bar">
+      <span class="date-filter-label">📅</span>
+      <input type="date" class="date-filter-input" id="filter-date-input">
+      <div class="date-filter-nav">
+        <button class="date-nav-btn" id="date-prev" aria-label="前一天">◀</button>
+        <button class="date-nav-btn" id="date-next" aria-label="后一天">▶</button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="fitness">健身记录</button>
+      <button class="tab" data-tab="diet">饮食记录</button>
+    </nav>
+
+    <!-- Form -->
+    <section class="form-card" id="form-card">
+      <form id="record-form" autocomplete="off"></form>
+    </section>
+
+    <!-- Records -->
+    <div class="section-header">
+      <span class="section-title" id="section-title">健身记录</span>
+      <span class="section-count" id="section-count"></span>
+    </div>
+    <section class="records-list" id="records-list"></section>
+    <div class="clear-section">
+      <button class="clear-btn" id="clear-btn">清空所有数据</button>
+    </div>
+  </div>
+
+  <!-- Summary Bar -->
+  <footer class="summary-bar" id="summary-bar"></footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // ==================== CONSTANTS ====================
+    var STORAGE_KEY = 'fitness_app_data';
+    var DEFAULT_DATA = { fitness: [], diet: [] };
+
+    // ==================== STATE ====================
+    var data = { fitness: [], diet: [] };
+    var activeTab = 'fitness';
+    var editing = null; // { type: 'fitness'|'diet', id: string } | null
+    var filterDate = getTodayStr(); // current date filter for records list
+
+    // ==================== HELPERS ====================
+    function getTodayStr() {
+      var d = new Date();
+      var yyyy = d.getFullYear();
+      var mm = String(d.getMonth() + 1).padStart(2, '0');
+      var dd = String(d.getDate()).padStart(2, '0');
+      return yyyy + '-' + mm + '-' + dd;
+    }
+
+    function generateId() {
+      return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+    }
+
+    function formatDate(dateStr) {
+      var parts = dateStr.split('-');
+      return parseInt(parts[1], 10) + '月' + parseInt(parts[2], 10) + '日';
+    }
+
+    // Safe local-date arithmetic (avoids UTC/timezone shift bugs)
+    function shiftDate(dateStr, days) {
+      var parts = dateStr.split('-');
+      var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      d.setDate(d.getDate() + days);
+      var yyyy = d.getFullYear();
+      var mm = String(d.getMonth() + 1).padStart(2, '0');
+      var dd = String(d.getDate()).padStart(2, '0');
+      return yyyy + '-' + mm + '-' + dd;
+    }
+
+    // ==================== DATA OPERATIONS ====================
+    function loadData() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          data.fitness = parsed.fitness || [];
+          data.diet = parsed.diet || [];
+        } else {
+          data = { fitness: [], diet: [] };
+        }
+      } catch (e) {
+        data = { fitness: [], diet: [] };
+      }
+    }
+
+    function saveData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function addRecord(type, record) {
+      record.id = generateId();
+      data[type].push(record);
+      data[type].sort(function(a, b) { return b.date.localeCompare(a.date) || b.id.localeCompare(a.id); });
+      saveData();
+    }
+
+    function updateRecord(type, id, updated) {
+      var idx = data[type].findIndex(function(r) { return r.id === id; });
+      if (idx !== -1) {
+        updated.id = id;
+        data[type][idx] = updated;
+        data[type].sort(function(a, b) { return b.date.localeCompare(a.date) || b.id.localeCompare(a.id); });
+        saveData();
+      }
+    }
+
+    function deleteRecord(type, id) {
+      data[type] = data[type].filter(function(r) { return r.id !== id; });
+      saveData();
+    }
+
+    function clearAllData() {
+      data = { fitness: [], diet: [] };
+      saveData();
+    }
+
+    // ==================== SUMMARY ====================
+    function getTodaySummary() {
+      var today = getTodayStr();
+      var totalSets = 0;
+      var totalExercises = 0;
+      var totalCalories = 0;
+      var totalProtein = 0;
+
+      data.fitness.forEach(function(r) {
+        if (r.date === today) {
+          totalSets += Number(r.sets) || 0;
+          totalExercises += 1;
+        }
+      });
+
+      data.diet.forEach(function(r) {
+        if (r.date === today) {
+          totalCalories += Number(r.calories) || 0;
+          totalProtein += Number(r.protein) || 0;
+        }
+      });
+
+      return {
+        sets: totalSets,
+        exercises: totalExercises,
+        calories: totalCalories,
+        protein: totalProtein
+      };
+    }
+
+    // ==================== RENDER ====================
+    function syncFilterDateInput() {
+      var input = document.getElementById('filter-date-input');
+      if (input) {
+        input.value = filterDate;
+      }
+    }
+
+    function renderTabs() {
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(function(tab) {
+        if (tab.dataset.tab === activeTab) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+
+    function renderForm() {
+      var formCard = document.getElementById('form-card');
+      var form = document.getElementById('record-form');
+      var today = getTodayStr();
+
+      if (editing) {
+        formCard.classList.add('editing');
+      } else {
+        formCard.classList.remove('editing');
+      }
+
+      var dateValue = editing ? today : filterDate;
+      var exerciseValue = '';
+      var setsValue = '';
+      var repsValue = '';
+      var weightValue = '';
+      var foodValue = '';
+      var portionValue = '';
+      var unitValue = '克(g)';
+      var caloriesValue = '';
+      var proteinValue = '';
+
+      if (editing) {
+        var rec = data[editing.type].find(function(r) { return r.id === editing.id; });
+        if (rec) {
+          dateValue = rec.date || today;
+          if (editing.type === 'fitness') {
+            exerciseValue = rec.exercise || '';
+            setsValue = rec.sets || '';
+            repsValue = rec.reps || '';
+            weightValue = rec.weight || '';
+          } else {
+            foodValue = rec.food || '';
+            portionValue = rec.portion || '';
+            unitValue = rec.unit || '克(g)';
+            caloriesValue = rec.calories || '';
+            proteinValue = rec.protein || '';
+          }
+        }
+      }
+
+      var html = '';
+
+      if (activeTab === 'fitness') {
+        html += '<div class="form-row">';
+        html += '<label class="form-label">日期</label>';
+        html += '<input class="form-input" type="date" name="date" value="' + dateValue + '" required>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">动作名称</label>';
+        html += '<input class="form-input" type="text" name="exercise" value="' + escapeHtml(exerciseValue) + '" placeholder="如：卧推" required>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">组数</label>';
+        html += '<input class="form-input" type="number" name="sets" value="' + setsValue + '" placeholder="0" min="0" inputmode="numeric" required>';
+        html += '<span class="form-unit">组</span>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">次数</label>';
+        html += '<input class="form-input" type="number" name="reps" value="' + repsValue + '" placeholder="0" min="0" inputmode="numeric" required>';
+        html += '<span class="form-unit">次</span>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">重量</label>';
+        html += '<input class="form-input" type="number" name="weight" value="' + weightValue + '" placeholder="0" min="0" step="0.5" inputmode="decimal">';
+        html += '<span class="form-unit">kg</span>';
+        html += '</div>';
+      } else {
+        html += '<div class="form-row">';
+        html += '<label class="form-label">日期</label>';
+        html += '<input class="form-input" type="date" name="date" value="' + dateValue + '" required>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">食物名称</label>';
+        html += '<input class="form-input" type="text" name="food" value="' + escapeHtml(foodValue) + '" placeholder="如：鸡胸肉" required>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">份量</label>';
+        html += '<input class="form-input" type="number" name="portion" value="' + portionValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal" required>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">单位</label>';
+        html += '<select class="form-select" name="unit">';
+        var units = ['克(g)', '碗', '杯', '毫升(ml)', '份'];
+        units.forEach(function(u) {
+          html += '<option value="' + u + '"' + (u === unitValue ? ' selected' : '') + '>' + u + '</option>';
+        });
+        html += '</select>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">热量</label>';
+        html += '<input class="form-input" type="number" name="calories" value="' + caloriesValue + '" placeholder="0" min="0" inputmode="numeric" required>';
+        html += '<span class="form-unit">kcal</span>';
+        html += '</div>';
+
+        html += '<div class="form-row">';
+        html += '<label class="form-label">蛋白质</label>';
+        html += '<input class="form-input" type="number" name="protein" value="' + proteinValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal">';
+        html += '<span class="form-unit">g</span>';
+        html += '</div>';
+      }
+
+      html += '<div class="form-actions">';
+      if (editing) {
+        html += '<button type="button" class="btn btn-secondary" id="cancel-btn">取消</button>';
+        html += '<button type="submit" class="btn btn-primary">更新记录</button>';
+      } else {
+        html += '<button type="submit" class="btn btn-primary">' + (activeTab === 'fitness' ? '添加训练' : '添加饮食') + '</button>';
+      }
+      html += '</div>';
+
+      form.innerHTML = html;
+
+      // Listen for date changes to filter records list
+      var dateInput = form.querySelector('input[name="date"]');
+      if (dateInput) {
+        dateInput.addEventListener('change', function() {
+          filterDate = dateInput.value;
+          renderRecords();
+        });
+      }
+
+      // Bind events
+      form.addEventListener('submit', handleFormSubmit);
+      if (editing) {
+        var cancelBtn = document.getElementById('cancel-btn');
+        if (cancelBtn) {
+          cancelBtn.addEventListener('click', function() { cancelEdit(true); });
+        }
+      }
+    }
+
+    function renderRecords() {
+      var list = document.getElementById('records-list');
+      var title = document.getElementById('section-title');
+      var count = document.getElementById('section-count');
+
+      title.textContent = (activeTab === 'fitness' ? '健身记录' : '饮食记录') + ' · ' + formatDate(filterDate);
+
+      var allRecords = data[activeTab];
+      var records = allRecords.filter(function(r) { return r.date === filterDate; });
+      count.textContent = records.length + ' 条记录';
+
+      if (records.length === 0) {
+        list.innerHTML = '<div class="empty-state">' +
+          '<div class="empty-icon">' + (activeTab === 'fitness' ? '🏋️' : '🥗') + '</div>' +
+          '<div class="empty-text">' + formatDate(filterDate) + ' 暂无记录</div>' +
+          '<div class="empty-text" style="font-size:13px;margin-top:4px;">在上方表单中添加记录，或切换日期查看</div>' +
+          '</div>';
+        return;
+      }
+
+      var editingId = editing ? editing.id : null;
+
+      var html = '';
+      records.forEach(function(r) {
+        var isEditing = (editingId === r.id);
+
+        html += '<div class="record-card' + (isEditing ? ' editing-highlight' : '') + '" data-id="' + r.id + '">';
+
+        if (activeTab === 'fitness') {
+          html += '<div class="record-icon">💪</div>';
+          html += '<div class="record-body">';
+          html += '<div class="record-date">' + formatDate(r.date) + '</div>';
+          html += '<div class="record-title">' + escapeHtml(r.exercise) + '</div>';
+          html += '<div class="record-detail">' + r.sets + '组 × ' + r.reps + '次' + (r.weight ? '  ·  ' + r.weight + 'kg' : '') + '</div>';
+          html += '</div>';
+        } else {
+          var emoji = getFoodEmoji(r.food);
+          html += '<div class="record-icon">' + emoji + '</div>';
+          html += '<div class="record-body">';
+          html += '<div class="record-date">' + formatDate(r.date) + '</div>';
+          html += '<div class="record-title">' + escapeHtml(r.food) + '</div>';
+          html += '<div class="record-detail">' + r.portion + r.unit + '  ·  ' + r.calories + 'kcal' + (r.protein ? '  ·  ' + r.protein + 'g蛋白质' : '') + '</div>';
+          html += '</div>';
+        }
+
+        html += '<button class="record-delete" data-action="delete" data-id="' + r.id + '" aria-label="删除">✕</button>';
+        html += '</div>';
+      });
+
+      list.innerHTML = html;
+
+      // Bind card click for edit
+      list.querySelectorAll('.record-card').forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          // Don't trigger edit if clicking delete button
+          if (e.target.closest('[data-action="delete"]')) return;
+          var id = card.dataset.id;
+          startEdit(activeTab, id);
+        });
+      });
+
+      // Bind delete buttons
+      list.querySelectorAll('[data-action="delete"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var id = btn.dataset.id;
+          handleDelete(activeTab, id);
+        });
+      });
+    }
+
+    function renderSummary() {
+      var bar = document.getElementById('summary-bar');
+      var s = getTodaySummary();
+
+      bar.innerHTML =
+        '<div class="summary-item">' +
+          '<div class="summary-value">' + s.exercises + '</div>' +
+          '<div class="summary-label">今日训练项</div>' +
+        '</div>' +
+        '<div class="summary-divider"></div>' +
+        '<div class="summary-item">' +
+          '<div class="summary-value">' + s.sets + '</div>' +
+          '<div class="summary-label">今日总组数</div>' +
+        '</div>' +
+        '<div class="summary-divider"></div>' +
+        '<div class="summary-item">' +
+          '<div class="summary-value">' + s.calories + '</div>' +
+          '<div class="summary-label">热量 kcal</div>' +
+        '</div>' +
+        '<div class="summary-divider"></div>' +
+        '<div class="summary-item">' +
+          '<div class="summary-value">' + s.protein + '</div>' +
+          '<div class="summary-label">蛋白质 g</div>' +
+        '</div>';
+    }
+
+    function render() {
+      syncFilterDateInput();
+      renderTabs();
+      renderForm();
+      renderRecords();
+      renderSummary();
+    }
+
+    // ==================== EVENT HANDLERS ====================
+    function handleTabClick(tab) {
+      if (tab === activeTab) return;
+      cancelEdit();
+      activeTab = tab;
+      render();
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var formData = new FormData(form);
+
+      if (activeTab === 'fitness') {
+        var record = {
+          date: formData.get('date'),
+          exercise: formData.get('exercise').trim(),
+          sets: parseInt(formData.get('sets'), 10) || 0,
+          reps: parseInt(formData.get('reps'), 10) || 0,
+          weight: parseFloat(formData.get('weight')) || 0
+        };
+
+        if (!record.exercise) return;
+
+        if (editing && editing.type === 'fitness') {
+          updateRecord('fitness', editing.id, record);
+          cancelEdit();
+        } else {
+          addRecord('fitness', record);
+        }
+      } else {
+        var record = {
+          date: formData.get('date'),
+          food: formData.get('food').trim(),
+          portion: parseFloat(formData.get('portion')) || 0,
+          unit: formData.get('unit'),
+          calories: parseInt(formData.get('calories'), 10) || 0,
+          protein: parseFloat(formData.get('protein')) || 0
+        };
+
+        if (!record.food) return;
+
+        if (editing && editing.type === 'diet') {
+          updateRecord('diet', editing.id, record);
+          cancelEdit();
+        } else {
+          addRecord('diet', record);
+        }
+      }
+
+      render();
+    }
+
+    function startEdit(type, id) {
+      var rec = data[type].find(function(r) { return r.id === id; });
+      if (!rec) return;
+
+      // Sync filterDate to the record's date so it shows in the list
+      filterDate = rec.date;
+
+      if (editing && editing.type !== type) {
+        // Switching tabs while editing — switch tab first
+        activeTab = type;
+        editing = { type: type, id: id };
+        render();
+        document.getElementById('form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      editing = { type: type, id: id };
+      render();
+      document.getElementById('form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function cancelEdit(resetDate) {
+      editing = null;
+      if (resetDate) {
+        filterDate = getTodayStr();
+      }
+      renderForm();
+    }
+
+    function handleDelete(type, id) {
+      // If deleting the record being edited, cancel edit
+      if (editing && editing.id === id) {
+        cancelEdit();
+      }
+      deleteRecord(type, id);
+      render();
+    }
+
+    function handleClearAll() {
+      if (confirm('确定要清空所有健身和饮食记录吗？此操作不可撤销。')) {
+        cancelEdit();
+        clearAllData();
+        render();
+      }
+    }
+
+    // ==================== UTILITY ====================
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function getFoodEmoji(food) {
+      var lower = (food || '').toLowerCase();
+      if (lower.includes('鸡')) return '🍗';
+      if (lower.includes('牛')) return '🥩';
+      if (lower.includes('猪')) return '🥓';
+      if (lower.includes('鱼') || lower.includes('虾')) return '🐟';
+      if (lower.includes('蛋') || lower.includes('鸡蛋')) return '🥚';
+      if (lower.includes('奶') || lower.includes('牛奶')) return '🥛';
+      if (lower.includes('面包') || lower.includes('吐司')) return '🍞';
+      if (lower.includes('饭') || lower.includes('米') || lower.includes('面')) return '🍚';
+      if (lower.includes('蔬菜') || lower.includes('青菜') || lower.includes('沙拉')) return '🥬';
+      if (lower.includes('水果') || lower.includes('苹果') || lower.includes('香蕉')) return '🍎';
+      if (lower.includes('坚果')) return '🥜';
+      if (lower.includes('豆腐')) return '🫘';
+      if (lower.includes('蛋白粉') || lower.includes('补剂')) return '🥤';
+      return '🍽️';
+    }
+
+    // ==================== SW REGISTRATION ====================
+    function registerSW() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(reg) {
+            console.log('SW registered:', reg.scope);
+          })
+          .catch(function(err) {
+            console.log('SW registration failed:', err);
+          });
+      }
+    }
+
+    // ==================== INIT ====================
+    function init() {
+      loadData();
+      render();
+
+      // Date filter bar — master date selector
+      var filterDateInput = document.getElementById('filter-date-input');
+      if (filterDateInput) {
+        filterDateInput.addEventListener('change', function() {
+          filterDate = filterDateInput.value;
+          cancelEdit();
+          render();
+        });
+
+        // Prev/next day navigation
+        var prevBtn = document.getElementById('date-prev');
+        var nextBtn = document.getElementById('date-next');
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function() {
+            filterDate = shiftDate(filterDate, -1);
+            cancelEdit();
+            render();
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function() {
+            filterDate = shiftDate(filterDate, 1);
+            cancelEdit();
+            render();
+          });
+        }
+      }
+
+      // Tab clicks
+      document.getElementById('tabs').addEventListener('click', function(e) {
+        var tab = e.target.closest('.tab');
+        if (!tab) return;
+        handleTabClick(tab.dataset.tab);
+      });
+
+      // Clear button
+      document.getElementById('clear-btn').addEventListener('click', handleClearAll);
+
+      // Listen for changes from other tabs
+      window.addEventListener('storage', function(e) {
+        if (e.key === STORAGE_KEY) {
+          cancelEdit();
+          loadData();
+          render();
+        }
+      });
+
+      // Register service worker
+      registerSW();
+    }
+
+    // Wait for DOM
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>
