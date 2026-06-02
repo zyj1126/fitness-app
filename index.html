@@ -84,66 +84,134 @@
       user-select: none;
     }
 
-    /* ===== Date Filter Bar ===== */
-    .date-filter-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    /* ===== Calendar ===== */
+    .calendar {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding: 10px 14px;
+      padding: 12px 14px 16px;
       margin: 12px 0;
       box-shadow: var(--shadow-sm);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .date-filter-label {
-      font-size: 14px;
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .calendar-month {
+      font-size: 16px;
       font-weight: 600;
       color: var(--text);
-      white-space: nowrap;
-      flex-shrink: 0;
+      letter-spacing: -0.2px;
     }
 
-    .date-filter-input {
-      flex: 1;
-      border: none;
-      background: var(--bg);
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-size: 15px;
-      font-family: inherit;
-      color: var(--text);
-      outline: none;
-      -webkit-appearance: none;
-      color-scheme: light;
-      min-height: 36px;
-    }
-
-    .date-filter-nav {
+    .calendar-nav {
       display: flex;
-      gap: 2px;
-      flex-shrink: 0;
+      gap: 4px;
     }
 
-    .date-nav-btn {
-      width: 36px;
-      height: 36px;
+    .calendar-nav-btn {
+      width: 34px;
+      height: 34px;
       border: none;
       background: var(--bg);
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
+      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text);
-      -webkit-tap-highlight-color: transparent;
       transition: all 0.15s;
     }
 
-    .date-nav-btn:active {
-      background: #e5e5ea;
-      transform: scale(0.94);
+    .calendar-nav-btn:active {
+      background: #e0e0e5;
+      transform: scale(0.93);
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .calendar-weekday {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 4px 0;
+    }
+
+    .calendar-weekday:nth-child(6),
+    .calendar-weekday:nth-child(7) {
+      color: var(--text-tertiary);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+
+    .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.15s;
+    }
+
+    .calendar-day:active {
+      background: #e8e8ed;
+    }
+
+    .calendar-day.other-month {
+      color: #d1d1d6;
+      pointer-events: none;
+    }
+
+    .calendar-day.today {
+      font-weight: 700;
+    }
+
+    /* Has records — subtle dot indicator */
+    .calendar-day.has-records::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #8e8e93;
+    }
+
+    /* Selected date — blue circle (iOS accent) */
+    .calendar-day.selected {
+      background: #007AFF;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .calendar-day.selected::after {
+      background: #ffffff;
+    }
+
+    .calendar-day.selected.today {
+      font-weight: 700;
     }
 
     /* ===== Tabs ===== */
@@ -561,15 +629,8 @@
       <h1>fitness</h1>
     </header>
 
-    <!-- Date Filter Bar -->
-    <div class="date-filter-bar">
-      <span class="date-filter-label">📅</span>
-      <input type="date" class="date-filter-input" id="filter-date-input">
-      <div class="date-filter-nav">
-        <button class="date-nav-btn" id="date-prev" aria-label="前一天">◀</button>
-        <button class="date-nav-btn" id="date-next" aria-label="后一天">▶</button>
-      </div>
-    </div>
+    <!-- Calendar -->
+    <div class="calendar" id="calendar"></div>
 
     <!-- Tabs -->
     <nav class="tabs" id="tabs">
@@ -609,6 +670,11 @@
     var activeTab = 'fitness';
     var editing = null; // { type: 'fitness'|'diet', id: string } | null
     var filterDate = getTodayStr(); // current date filter for records list
+    var calendarYear = new Date().getFullYear();
+    var calendarMonth = new Date().getMonth(); // 0-indexed
+
+    var MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+    var WEEKDAYS = ['一','二','三','四','五','六','日'];
 
     // ==================== HELPERS ====================
     function getTodayStr() {
@@ -637,6 +703,106 @@
       var mm = String(d.getMonth() + 1).padStart(2, '0');
       var dd = String(d.getDate()).padStart(2, '0');
       return yyyy + '-' + mm + '-' + dd;
+    }
+
+    // ==================== CALENDAR ====================
+    function getDatesWithRecords() {
+      var dates = {};
+      data.fitness.forEach(function(r) { dates[r.date] = true; });
+      data.diet.forEach(function(r) { dates[r.date] = true; });
+      return dates;
+    }
+
+    function formatCalendarDate(year, month, day) {
+      return year + '-' + String(month + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    }
+
+    function renderCalendar() {
+      var container = document.getElementById('calendar');
+      if (!container) return;
+
+      var year = calendarYear;
+      var month = calendarMonth;
+      var today = getTodayStr();
+      var datesWithRecords = getDatesWithRecords();
+
+      // Compute calendar grid
+      var firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+      var startOffset = firstDay === 0 ? 6 : firstDay - 1; // Mon=0
+
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+      var daysInPrev = new Date(year, month, 0).getDate();
+
+      var cells = [];
+
+      // Prev month tail
+      for (var i = startOffset - 1; i >= 0; i--) {
+        var d = daysInPrev - i;
+        cells.push({
+          day: d,
+          date: formatCalendarDate(year, month - 1, d),
+          other: true
+        });
+      }
+
+      // Current month
+      for (var d = 1; d <= daysInMonth; d++) {
+        var dateStr = formatCalendarDate(year, month, d);
+        cells.push({
+          day: d,
+          date: dateStr,
+          other: false,
+          hasData: !!datesWithRecords[dateStr],
+          isToday: dateStr === today,
+          isSelected: dateStr === filterDate
+        });
+      }
+
+      // Next month head (fill to complete row)
+      var rem = 7 - (cells.length % 7);
+      if (rem < 7) {
+        for (var d = 1; d <= rem; d++) {
+          cells.push({
+            day: d,
+            date: formatCalendarDate(year, month + 1, d),
+            other: true
+          });
+        }
+      }
+
+      // Build HTML
+      var html = '';
+
+      // Header
+      html += '<div class="calendar-header">';
+      html += '<span class="calendar-month">' + year + '年' + MONTHS[month] + '</span>';
+      html += '<div class="calendar-nav">';
+      html += '<button class="calendar-nav-btn" data-cal-action="prev" aria-label="上月">◀</button>';
+      html += '<button class="calendar-nav-btn" data-cal-action="next" aria-label="下月">▶</button>';
+      html += '</div></div>';
+
+      // Weekdays
+      html += '<div class="calendar-weekdays">';
+      WEEKDAYS.forEach(function(w) {
+        html += '<span class="calendar-weekday">' + w + '</span>';
+      });
+      html += '</div>';
+
+      // Grid
+      html += '<div class="calendar-grid">';
+      cells.forEach(function(c) {
+        var cls = 'calendar-day';
+        if (c.other) cls += ' other-month';
+        if (c.isToday) cls += ' today';
+        if (c.hasData) cls += ' has-records';
+        if (c.isSelected) cls += ' selected';
+        html += '<div class="' + cls + '" data-date="' + c.date + '"' + (c.other ? '' : ' data-cal-date') + '>';
+        html += c.day;
+        html += '</div>';
+      });
+      html += '</div>';
+
+      container.innerHTML = html;
     }
 
     // ==================== DATA OPERATIONS ====================
@@ -717,13 +883,6 @@
     }
 
     // ==================== RENDER ====================
-    function syncFilterDateInput() {
-      var input = document.getElementById('filter-date-input');
-      if (input) {
-        input.value = filterDate;
-      }
-    }
-
     function renderTabs() {
       var tabs = document.querySelectorAll('.tab');
       tabs.forEach(function(tab) {
@@ -973,7 +1132,7 @@
     }
 
     function render() {
-      syncFilterDateInput();
+      renderCalendar();
       renderTabs();
       renderForm();
       renderRecords();
@@ -1058,6 +1217,9 @@
       editing = null;
       if (resetDate) {
         filterDate = getTodayStr();
+        var now = new Date();
+        calendarYear = now.getFullYear();
+        calendarMonth = now.getMonth();
       }
       renderForm();
     }
@@ -1119,35 +1281,41 @@
     // ==================== INIT ====================
     function init() {
       loadData();
+
+      // Parse filterDate to calendar year/month
+      var parts = filterDate.split('-');
+      calendarYear = parseInt(parts[0], 10);
+      calendarMonth = parseInt(parts[1], 10) - 1;
+
       render();
 
-      // Date filter bar — master date selector
-      var filterDateInput = document.getElementById('filter-date-input');
-      if (filterDateInput) {
-        filterDateInput.addEventListener('change', function() {
-          filterDate = filterDateInput.value;
+      // Calendar event delegation
+      document.getElementById('calendar').addEventListener('click', function(e) {
+        // Date cell click
+        var dayEl = e.target.closest('[data-cal-date]');
+        if (dayEl) {
+          filterDate = dayEl.dataset.date;
+          var p = filterDate.split('-');
+          calendarYear = parseInt(p[0], 10);
+          calendarMonth = parseInt(p[1], 10) - 1;
           cancelEdit();
           render();
-        });
-
-        // Prev/next day navigation
-        var prevBtn = document.getElementById('date-prev');
-        var nextBtn = document.getElementById('date-next');
-        if (prevBtn) {
-          prevBtn.addEventListener('click', function() {
-            filterDate = shiftDate(filterDate, -1);
-            cancelEdit();
-            render();
-          });
+          return;
         }
-        if (nextBtn) {
-          nextBtn.addEventListener('click', function() {
-            filterDate = shiftDate(filterDate, 1);
-            cancelEdit();
-            render();
-          });
+        // Navigation
+        var navBtn = e.target.closest('[data-cal-action]');
+        if (navBtn) {
+          if (navBtn.dataset.calAction === 'prev') {
+            calendarMonth--;
+            if (calendarMonth < 0) { calendarMonth = 11; calendarYear--; }
+          } else {
+            calendarMonth++;
+            if (calendarMonth > 11) { calendarMonth = 0; calendarYear++; }
+          }
+          renderCalendar();
+          return;
         }
-      }
+      });
 
       // Tab clicks
       document.getElementById('tabs').addEventListener('click', function(e) {
