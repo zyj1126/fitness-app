@@ -171,6 +171,7 @@
       cursor: pointer;
       position: relative;
       transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .calendar-day:active {
@@ -186,7 +187,11 @@
       font-weight: 700;
     }
 
-    /* Has records — subtle dot indicator */
+    /* Has records — light background highlight */
+    .calendar-day.has-records {
+      background: #f0f0f5;
+    }
+
     .calendar-day.has-records::after {
       content: '';
       position: absolute;
@@ -1291,9 +1296,9 @@
 
       // Calendar event delegation
       document.getElementById('calendar').addEventListener('click', function(e) {
-        // Date cell click
-        var dayEl = e.target.closest('[data-cal-date]');
-        if (dayEl) {
+        // Date cell click — use [data-date] and exclude other-month
+        var dayEl = e.target.closest('[data-date]');
+        if (dayEl && !dayEl.classList.contains('other-month')) {
           filterDate = dayEl.dataset.date;
           var p = filterDate.split('-');
           calendarYear = parseInt(p[0], 10);
