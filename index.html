@@ -931,7 +931,7 @@
   <div class="scanner-overlay" id="scanner-overlay">
     <div class="scanner-header">
       <span class="scanner-title">扫描条形码</span>
-      <button class="scanner-close" id="scanner-close">✕</button>
+      <button class="scanner-close" onclick="window._closeScanner()">✕</button>
     </div>
     <div class="scanner-body">
       <div id="scanner-view"></div>
@@ -960,12 +960,12 @@
       </div>
       <div class="portion-row">
         <span>食用份量</span>
-        <input type="number" id="scan-portion" value="100" min="1" step="1" inputmode="numeric">
+        <input type="number" id="scan-portion" value="100" min="1" step="1" inputmode="numeric" oninput="window._updateScanPortion()">
         <span>克(g)</span>
       </div>
       <div class="btn-row">
-        <button class="btn btn-primary" id="scan-fill-btn" style="flex:2;">填入记录</button>
-        <button class="btn btn-secondary" id="scan-cancel-btn" style="flex:1;">取消</button>
+        <button class="btn btn-primary" onclick="window._fillFromScanner()" style="flex:2;">填入记录</button>
+        <button class="btn btn-secondary" onclick="window._closeScanner()" style="flex:1;">取消</button>
       </div>
     </div>
   </div>
@@ -1843,30 +1843,37 @@
       var overlay = document.getElementById('scanner-overlay');
       if (!overlay) return;
       overlay.classList.add('active');
-      document.getElementById('scanner-result').classList.remove('show');
+      var resultEl = document.getElementById('scanner-result');
+      if (resultEl) resultEl.classList.remove('show');
       scannedProduct = null;
 
-      if (!html5Scanner) {
-        var H5QR = window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode;
-        if (!H5QR) { alert('扫码库加载失败，请刷新页面'); return; }
-        html5Scanner = new H5QR('scanner-view');
-      }
-
-      html5Scanner.start(
-        { facingMode: 'environment' },
-        { fps: 10, qrbox: { width: 280, height: 180 } },
-        onBarcodeDetected,
-        function() {} // ignore scan errors
-      ).catch(function(err) {
-        console.log('Scanner start error:', err);
-        alert('无法打开摄像头，请检查权限');
-        closeScanner();
-      });
+      // Small delay to ensure DOM is painted before initializing camera
+      setTimeout(function() {
+        try {
+          if (!html5Scanner) {
+            var H5QR = (window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode);
+            if (!H5QR) { alert('扫码库加载失败'); return; }
+            html5Scanner = new H5QR('scanner-view', { verbose: false });
+          }
+          html5Scanner.start(
+            { facingMode: 'environment' },
+            { fps: 10, qrbox: { width: 250, height: 160 } },
+            onBarcodeDetected,
+            function() {}
+          ).catch(function(err) {
+            alert('摄像头错误: ' + (err.message || err));
+            closeScanner();
+          });
+        } catch(e) {
+          alert('扫码失败: ' + e.message);
+          closeScanner();
+        }
+      }, 300);
     }
 
     function closeScanner() {
       if (html5Scanner) {
-        html5Scanner.stop().catch(function(){});
+        try { html5Scanner.stop().catch(function(){}); } catch(e) {}
       }
       var overlay = document.getElementById('scanner-overlay');
       if (overlay) overlay.classList.remove('active');
@@ -1980,40 +1987,24 @@
       autoFillNutrition();
     }
 
+    // Scanner events bound in renderForm via inline handlers on overlay HTML
     function bindScannerEvents() {
-      var scanBtn = document.getElementById('scan-btn');
-      if (scanBtn) {
-        scanBtn.addEventListener('click', openScanner);
-      }
-
-      var closeBtn = document.getElementById('scanner-close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closeScanner);
-      }
-
-      var fillBtn = document.getElementById('scan-fill-btn');
-      if (fillBtn) {
-        fillBtn.addEventListener('click', fillFromScanner);
-      }
-
-      var cancelBtn = document.getElementById('scan-cancel-btn');
-      if (cancelBtn) {
-        cancelBtn.addEventListener('click', closeScanner);
-      }
-
-      // Update nutrition display when portion changes in scanner
-      var scanPortion = document.getElementById('scan-portion');
-      if (scanPortion) {
-        scanPortion.addEventListener('input', function() {
-          if (!scannedProduct) return;
-          var r = parseFloat(scanPortion.value) / 100 || 0;
-          document.getElementById('scan-kcal').textContent = Math.round(scannedProduct.kcal * r);
-          document.getElementById('scan-protein').textContent = parseFloat((scannedProduct.protein * r).toFixed(1));
-          document.getElementById('scan-fat').textContent = parseFloat((scannedProduct.fat * r).toFixed(1));
-          document.getElementById('scan-carbs').textContent = parseFloat((scannedProduct.carbs * r).toFixed(1));
-        });
-      }
+      // The overlay buttons use inline onclick in the static HTML
+      // No dynamic binding needed
     }
+
+    // These must be globally accessible for inline onclick
+    window._closeScanner = closeScanner;
+    window._fillFromScanner = fillFromScanner;
+    window._updateScanPortion = function() {
+      if (!scannedProduct) return;
+      var v = parseFloat(document.getElementById('scan-portion')?.value) || 100;
+      var r = v / 100;
+      document.getElementById('scan-kcal').textContent = Math.round(scannedProduct.kcal * r);
+      document.getElementById('scan-protein').textContent = parseFloat((scannedProduct.protein * r).toFixed(1));
+      document.getElementById('scan-fat').textContent = parseFloat((scannedProduct.fat * r).toFixed(1));
+      document.getElementById('scan-carbs').textContent = parseFloat((scannedProduct.carbs * r).toFixed(1));
+    };
 
     // ==================== INIT ====================
     function init() {
