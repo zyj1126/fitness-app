@@ -1004,7 +1004,7 @@
 
         html += '<div class="form-row">';
         html += '<label class="form-label">重量</label>';
-        html += '<input class="form-input" type="number" name="weight" value="' + weightValue + '" placeholder="0" min="0" step="0.5" inputmode="decimal">';
+        html += '<input class="form-input" type="number" name="weight" value="' + weightValue + '" placeholder="0.00" min="0" step="0.01" inputmode="decimal">';
         html += '<span class="form-unit">kg</span>';
         html += '</div>';
       } else {
@@ -1113,7 +1113,7 @@
           html += '<div class="record-body">';
           html += '<div class="record-date">' + formatDate(r.date) + '</div>';
           html += '<div class="record-title">' + escapeHtml(r.exercise) + '</div>';
-          html += '<div class="record-detail">' + r.sets + '组 × ' + r.reps + '次' + (r.weight ? '  ·  ' + r.weight + 'kg' : '') + '</div>';
+          html += '<div class="record-detail">' + r.sets + '组 × ' + r.reps + '次' + (r.weight ? '  ·  ' + r.weight.toFixed(2) + 'kg' : '') + '</div>';
           html += '</div>';
         } else {
           var emoji = getFoodEmoji(r.food);
@@ -1204,7 +1204,7 @@
           exercise: formData.get('exercise').trim(),
           sets: parseInt(formData.get('sets'), 10) || 0,
           reps: parseInt(formData.get('reps'), 10) || 0,
-          weight: parseFloat(formData.get('weight')) || 0
+          weight: parseFloat(parseFloat(formData.get('weight')).toFixed(2)) || 0
         };
 
         if (!record.exercise) return;
