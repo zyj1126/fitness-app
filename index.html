@@ -125,59 +125,24 @@
     .css-dumbbell-wrapper .inner-collar.left { left: 4px; }
     .css-dumbbell-wrapper .inner-collar.right { right: 4px; }
 
-    .css-dumbbell-wrapper .weight-plates-left {
-      position: absolute;
-      top: 50%; left: 0;
-      transform: translateY(-50%);
-      display: flex; flex-direction: row-reverse;
-      z-index: 1; gap: 1px;
-    }
-    .css-dumbbell-wrapper .weight-plates-right {
-      position: absolute;
-      top: 50%; right: 0;
-      transform: translateY(-50%);
-      display: flex;
-      z-index: 1; gap: 1px;
-    }
-
-    .css-dumbbell-wrapper .plate {
-      border-radius: 2px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 1px rgba(0,0,0,0.2);
-      position: relative;
-    }
-    .css-dumbbell-wrapper .plate.large {
-      width: 4px; height: 24px; border-radius: 2px;
-      background: linear-gradient(180deg, #3a3f48 0%, #2a2e35 15%, #4a5059 30%, #1f2228 50%, #3d424b 70%, #252930 100%);
-      border: 1px solid #1a1c21;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
-    }
-    .css-dumbbell-wrapper .plate.medium {
-      width: 3px; height: 20px; border-radius: 2px;
-      background: linear-gradient(180deg, #4a5059 0%, #353940 15%, #555b65 30%, #2e3238 50%, #484e57 70%, #30343b 100%);
-      border: 1px solid #1e2025;
-    }
-    .css-dumbbell-wrapper .plate.small {
-      width: 2px; height: 16px; border-radius: 1px;
-      background: linear-gradient(180deg, #555b65 0%, #40454d 15%, #606670 30%, #383c44 50%, #525860 70%, #3a3e46 100%);
-      border: 1px solid #22252a;
-    }
-
-    .css-dumbbell-wrapper .outer-collar {
+    .css-dumbbell-wrapper .weight-plate {
       position: absolute;
       top: 50%; transform: translateY(-50%);
-      width: 2px; height: 7px;
-      background: linear-gradient(180deg, #d0d4da, #8e939b, #b8bcc3);
-      border-radius: 1px; z-index: 4;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+      width: 6px; height: 26px;
+      border-radius: 3px;
+      z-index: 1;
+      background: linear-gradient(180deg, #3a3f48 0%, #2a2e35 20%, #4a5059 40%, #1f2228 50%, #3d424b 70%, #252930 100%);
+      border: 1px solid #1a1c21;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
     }
-    .css-dumbbell-wrapper .outer-collar.left { left: 1px; }
-    .css-dumbbell-wrapper .outer-collar.right { right: 1px; }
+    .css-dumbbell-wrapper .weight-plate.left { left: 3px; }
+    .css-dumbbell-wrapper .weight-plate.right { right: 3px; }
 
     .css-dumbbell-wrapper .end-cap {
       position: absolute;
       top: 50%; transform: translateY(-50%);
-      width: 2px; height: 11px;
-      border-radius: 1px; z-index: 5;
+      width: 3px; height: 12px;
+      border-radius: 2px; z-index: 4;
       background: linear-gradient(180deg, #e8ebf0, #b0b5bd, #d5d9df);
       box-shadow: 0 1px 2px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5);
     }
@@ -831,18 +796,8 @@
         <div class="bar"></div>
         <div class="inner-collar left"></div>
         <div class="inner-collar right"></div>
-        <div class="weight-plates-left">
-          <div class="plate small"></div>
-          <div class="plate medium"></div>
-          <div class="plate large"></div>
-        </div>
-        <div class="weight-plates-right">
-          <div class="plate large"></div>
-          <div class="plate medium"></div>
-          <div class="plate small"></div>
-        </div>
-        <div class="outer-collar left"></div>
-        <div class="outer-collar right"></div>
+        <div class="weight-plate left"></div>
+        <div class="weight-plate right"></div>
         <div class="end-cap left"></div>
         <div class="end-cap right"></div>
       </div>
