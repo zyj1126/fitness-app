@@ -1,7 +1,7 @@
 // ==================== fitness PWA Service Worker ====================
 // Network-First for pages, Cache-First for assets
 
-const CACHE_NAME = 'fitness-v5';
+const CACHE_NAME = 'fitness-v6';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json'
