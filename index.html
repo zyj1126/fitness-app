@@ -1847,7 +1847,9 @@
       scannedProduct = null;
 
       if (!html5Scanner) {
-        html5Scanner = new Html5Qrcode('scanner-view');
+        var H5QR = window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode;
+        if (!H5QR) { alert('扫码库加载失败，请刷新页面'); return; }
+        html5Scanner = new H5QR('scanner-view');
       }
 
       html5Scanner.start(
