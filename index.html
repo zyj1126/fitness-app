@@ -1224,7 +1224,7 @@
           html += '<div class="record-body">';
           html += '<div class="record-date">' + formatDate(r.date) + '</div>';
           html += '<div class="record-title">' + escapeHtml(r.exercise) + '</div>';
-          html += '<div class="record-detail">' + r.sets + '组 × ' + r.reps + '次' + (r.weight ? '  ·  ' + r.weight.toFixed(2) + 'kg' : '') + '</div>';
+          html += '<div class="record-detail">' + r.sets + '组 × ' + r.reps + '次' + (r.weight ? '  ·  ' + Number(r.weight).toFixed(2) + 'kg' : '') + '</div>';
           html += '</div>';
         } else {
           var emoji = getFoodEmoji(r.food);
