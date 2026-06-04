@@ -631,6 +631,86 @@
       }
     }
 
+    /* ===== Autocomplete ===== */
+    .autocomplete-wrap {
+      position: relative;
+      flex: 1;
+    }
+
+    .autocomplete-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 200;
+      max-height: 240px;
+      overflow-y: auto;
+      display: none;
+      margin-top: 4px;
+    }
+
+    .autocomplete-dropdown.show {
+      display: block;
+    }
+
+    .autocomplete-item {
+      padding: 11px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .autocomplete-item:first-child {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .autocomplete-item:last-child {
+      border-radius: 0 0 10px 10px;
+    }
+
+    .autocomplete-item:active,
+    .autocomplete-item:hover {
+      background: #f2f2f7;
+    }
+
+    .autocomplete-item-name {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .autocomplete-item-meta {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .nutrition-hint {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 6px 16px 4px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      border-top: 1px solid var(--border);
+    }
+
+    .nutrition-hint span {
+      white-space: nowrap;
+    }
+
+    .nutrition-auto {
+      color: #007AFF;
+      font-weight: 500;
+    }
+
     @media (min-width: 481px) {
       .summary-bar {
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -682,6 +762,7 @@
   <!-- Summary Bar -->
   <footer class="summary-bar" id="summary-bar"></footer>
 
+  <script src="food-database.js"></script>
   <script>
   (function() {
     'use strict';
@@ -697,6 +778,7 @@
     var filterDate = getTodayStr(); // current date filter for records list
     var calendarYear = new Date().getFullYear();
     var calendarMonth = new Date().getMonth(); // 0-indexed
+    var selectedFoodData = null; // matched food from database for auto-fill
 
     var MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
     var WEEKDAYS = ['一','二','三','四','五','六','日'];
@@ -1025,14 +1107,17 @@
         html += '<input class="form-input" type="date" name="date" value="' + dateValue + '" required>';
         html += '</div>';
 
-        html += '<div class="form-row">';
+        html += '<div class="form-row" style="position:relative;">';
         html += '<label class="form-label">食物名称</label>';
-        html += '<input class="form-input" type="text" name="food" value="' + escapeHtml(foodValue) + '" placeholder="如：鸡胸肉" required>';
+        html += '<div class="autocomplete-wrap">';
+        html += '<input class="form-input" type="text" name="food" id="food-input" value="' + escapeHtml(foodValue) + '" placeholder="如：鸡胸肉" autocomplete="off" required>';
+        html += '<div class="autocomplete-dropdown" id="food-dropdown"></div>';
+        html += '</div>';
         html += '</div>';
 
         html += '<div class="form-row">';
         html += '<label class="form-label">份量</label>';
-        html += '<input class="form-input" type="number" name="portion" value="' + portionValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal" required>';
+        html += '<input class="form-input" type="number" name="portion" id="portion-input" value="' + portionValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal" required>';
         html += '</div>';
 
         html += '<div class="form-row">';
@@ -1045,15 +1130,17 @@
         html += '</select>';
         html += '</div>';
 
+        html += '<div id="nutrition-hint" class="nutrition-hint" style="display:none;"></div>';
+
         html += '<div class="form-row">';
         html += '<label class="form-label">热量</label>';
-        html += '<input class="form-input" type="number" name="calories" value="' + caloriesValue + '" placeholder="0" min="0" inputmode="numeric" required>';
+        html += '<input class="form-input nutrition-auto" type="number" name="calories" id="calories-input" value="' + caloriesValue + '" placeholder="0" min="0" inputmode="numeric" required>';
         html += '<span class="form-unit">kcal</span>';
         html += '</div>';
 
         html += '<div class="form-row">';
         html += '<label class="form-label">蛋白质</label>';
-        html += '<input class="form-input" type="number" name="protein" value="' + proteinValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal">';
+        html += '<input class="form-input nutrition-auto" type="number" name="protein" id="protein-input" value="' + proteinValue + '" placeholder="0" min="0" step="0.1" inputmode="decimal">';
         html += '<span class="form-unit">g</span>';
         html += '</div>';
       }
@@ -1088,6 +1175,18 @@
         var cancelBtn = document.getElementById('cancel-btn');
         if (cancelBtn) {
           cancelBtn.addEventListener('click', function() { cancelEdit(true); });
+        }
+      }
+
+      // Bind autocomplete events for diet form
+      if (activeTab === 'diet') {
+        bindDietFormEvents();
+        // If editing, try to match food to database
+        if (editing) {
+          var rec = data[editing.type].find(function(r) { return r.id === editing.id; });
+          if (rec && rec.food) {
+            selectFood(rec.food);
+          }
         }
       }
     }
@@ -1133,7 +1232,11 @@
           html += '<div class="record-body">';
           html += '<div class="record-date">' + formatDate(r.date) + '</div>';
           html += '<div class="record-title">' + escapeHtml(r.food) + '</div>';
-          html += '<div class="record-detail">' + r.portion + r.unit + '  ·  ' + r.calories + 'kcal' + (r.protein ? '  ·  ' + r.protein + 'g蛋白质' : '') + '</div>';
+          var macros = [];
+          if (r.protein) macros.push('蛋白质' + r.protein + 'g');
+          if (r.fat) macros.push('脂肪' + r.fat + 'g');
+          if (r.carbs) macros.push('碳水' + r.carbs + 'g');
+          html += '<div class="record-detail">' + r.portion + r.unit + '  ·  ' + r.calories + 'kcal' + (macros.length ? '  ·  ' + macros.join(' · ') : '') + '</div>';
           html += '</div>';
         }
 
@@ -1228,18 +1331,30 @@
           addRecord('fitness', record);
         }
       } else {
+        var ratio = (parseFloat(formData.get('portion')) || 0) / 100;
+        var sfd = selectedFoodData;
         var record = {
           date: formData.get('date'),
           food: formData.get('food').trim(),
           portion: parseFloat(formData.get('portion')) || 0,
           unit: formData.get('unit'),
           calories: parseInt(formData.get('calories'), 10) || 0,
-          protein: parseFloat(formData.get('protein')) || 0
+          protein: parseFloat(formData.get('protein')) || 0,
+          fat: sfd ? parseFloat((sfd.fat * ratio).toFixed(1)) : 0,
+          carbs: sfd ? parseFloat((sfd.carbs * ratio).toFixed(1)) : 0
         };
 
         if (!record.food) return;
 
         if (editing && editing.type === 'diet') {
+          // Preserve existing fat/carbs if not recalculated
+          var oldRec = data.diet.find(function(r) { return r.id === editing.id; });
+          if (oldRec) {
+            if (!selectedFoodData) {
+              record.fat = oldRec.fat || 0;
+              record.carbs = oldRec.carbs || 0;
+            }
+          }
           updateRecord('diet', editing.id, record);
           cancelEdit();
         } else {
@@ -1273,6 +1388,7 @@
 
     function cancelEdit(resetDate) {
       editing = null;
+      selectedFoodData = null;
       if (resetDate) {
         filterDate = getTodayStr();
         var now = new Date();
@@ -1282,7 +1398,152 @@
       renderForm();
     }
 
-    function handleDelete(type, id) {
+    // ==================== FOOD AUTOCOMPLETE ====================
+
+    function searchFoods(query) {
+      if (!query || query.length < 1) return [];
+      var q = query.toLowerCase();
+      var results = [];
+      var seen = {};
+      FOOD_DATABASE.forEach(function(f) {
+        if (seen[f.name]) return;
+        var idx = f.name.toLowerCase().indexOf(q);
+        if (idx >= 0) {
+          seen[f.name] = true;
+          results.push({ food: f, score: idx });
+        }
+      });
+      // Sort by match position (exact match first), then by name
+      results.sort(function(a, b) {
+        if (a.score !== b.score) return a.score - b.score;
+        return a.food.name.length - b.food.name.length;
+      });
+      return results.slice(0, 8).map(function(r) { return r.food; });
+    }
+
+    function renderDropdown(matches) {
+      var dd = document.getElementById('food-dropdown');
+      if (!dd) return;
+      if (!matches.length) {
+        dd.classList.remove('show');
+        return;
+      }
+      var html = '';
+      matches.forEach(function(f) {
+        html += '<div class="autocomplete-item" data-food="' + escapeHtml(f.name) + '">';
+        html += '<span class="autocomplete-item-name">' + escapeHtml(f.name) + '</span>';
+        html += '<span class="autocomplete-item-meta">' + f.kcal + 'kcal/100g · 蛋白' + f.protein + 'g</span>';
+        html += '</div>';
+      });
+      dd.innerHTML = html;
+      dd.classList.add('show');
+    }
+
+    function selectFood(foodName) {
+      selectedFoodData = null;
+      var found = FOOD_DATABASE.find(function(f) { return f.name === foodName; });
+      if (found) {
+        selectedFoodData = found;
+      }
+      // Hide dropdown
+      var dd = document.getElementById('food-dropdown');
+      if (dd) dd.classList.remove('show');
+
+      // Show nutrition hint
+      if (selectedFoodData) {
+        var hint = document.getElementById('nutrition-hint');
+        if (hint) {
+          hint.style.display = 'flex';
+          hint.innerHTML = '<span>每100g：</span>' +
+            '<span>' + selectedFoodData.kcal + ' kcal</span>' +
+            '<span>蛋白 ' + selectedFoodData.protein + 'g</span>' +
+            '<span>脂肪 ' + (selectedFoodData.fat || 0).toFixed(1) + 'g</span>' +
+            '<span>碳水 ' + (selectedFoodData.carbs || 0).toFixed(1) + 'g</span>';
+        }
+        autoFillNutrition();
+      }
+    }
+
+    function autoFillNutrition() {
+      if (!selectedFoodData) return;
+      var portion = parseFloat(document.getElementById('portion-input')?.value) || 0;
+      if (portion <= 0) return;
+
+      var ratio = portion / 100;
+      var calInput = document.getElementById('calories-input');
+      var proInput = document.getElementById('protein-input');
+
+      if (calInput) {
+        calInput.value = Math.round(selectedFoodData.kcal * ratio);
+        calInput.classList.add('nutrition-auto');
+      }
+      if (proInput) {
+        proInput.value = (selectedFoodData.protein * ratio).toFixed(1);
+        proInput.classList.add('nutrition-auto');
+      }
+    }
+
+    function bindDietFormEvents() {
+      var foodInput = document.getElementById('food-input');
+      var dropdown = document.getElementById('food-dropdown');
+      var portionInput = document.getElementById('portion-input');
+
+      if (!foodInput) return;
+
+      // Input event — search foods
+      foodInput.addEventListener('input', function() {
+        var val = foodInput.value.trim();
+        if (val === (selectedFoodData ? selectedFoodData.name : '')) {
+          // User hasn't changed from selected food
+          return;
+        }
+        selectedFoodData = null;
+        var hint = document.getElementById('nutrition-hint');
+        if (hint) hint.style.display = 'none';
+        var matches = searchFoods(val);
+        renderDropdown(matches);
+      });
+
+      // Focus — show dropdown if there are matches
+      foodInput.addEventListener('focus', function() {
+        var val = foodInput.value.trim();
+        if (val && !selectedFoodData) {
+          var matches = searchFoods(val);
+          renderDropdown(matches);
+        } else if (!val) {
+          var matches = searchFoods('');
+          renderDropdown(matches);
+        }
+      });
+
+      // Click on dropdown item
+      if (dropdown) {
+        dropdown.addEventListener('click', function(e) {
+          var item = e.target.closest('.autocomplete-item');
+          if (!item) return;
+          var foodName = item.dataset.food;
+          foodInput.value = foodName;
+          selectFood(foodName);
+        });
+      }
+
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        var wrap = document.querySelector('.autocomplete-wrap');
+        if (wrap && !wrap.contains(e.target)) {
+          if (dropdown) dropdown.classList.remove('show');
+        }
+      });
+
+      // Recalculate when portion changes
+      if (portionInput) {
+        portionInput.addEventListener('input', function() {
+          if (selectedFoodData) {
+            autoFillNutrition();
+          }
+        });
+      }
+    }
       // If deleting the record being edited, cancel edit
       if (editing && editing.id === id) {
         cancelEdit();
