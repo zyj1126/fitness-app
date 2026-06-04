@@ -1331,7 +1331,7 @@
         html += '<input class="form-input" type="text" name="food" id="food-input" value="' + escapeHtml(foodValue) + '" placeholder="如：鸡胸肉" autocomplete="off" required>';
         html += '<div class="autocomplete-dropdown" id="food-dropdown"></div>';
         html += '</div>';
-        html += '<button type="button" class="scan-btn" id="scan-btn" title="扫描条形码">📷</button>';
+        html += '<button type="button" class="scan-btn" id="scan-btn" onclick="window._openScanner()" title="扫描条形码">📷</button>';
         html += '</div>';
 
         html += '<div class="form-row">';
@@ -2015,6 +2015,10 @@
 
     // ==================== INIT ====================
     function init() {
+      // Expose scanner functions for inline onclick
+      window._openScanner = openScanner;
+      window._closeScanner = closeScanner;
+
       loadData();
 
       // Parse filterDate to calendar year/month
