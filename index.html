@@ -711,6 +711,174 @@
       font-weight: 500;
     }
 
+    /* ===== Barcode Scanner ===== */
+    .scan-btn {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: var(--bg);
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: 8px;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .scan-btn:active {
+      background: #e0e0e5;
+      transform: scale(0.93);
+    }
+
+    .scanner-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #000;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+    }
+
+    .scanner-overlay.active {
+      display: flex;
+    }
+
+    .scanner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      z-index: 2;
+    }
+
+    .scanner-close {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scanner-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .scanner-body {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #scanner-view {
+      width: 100%;
+      height: 100%;
+    }
+
+    .scanner-hint {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 14px;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .scanner-result {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px 40px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      z-index: 3;
+    }
+
+    .scanner-result.show {
+      transform: translateY(0);
+    }
+
+    .scanner-result h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .scanner-result .brand {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .scanner-result .nutrients {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .scanner-result .nutrient-item {
+      text-align: center;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 10px 4px;
+    }
+
+    .scanner-result .nutrient-val {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .scanner-result .nutrient-label {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .scanner-result .portion-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .scanner-result .portion-row input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    .scanner-result .portion-row span {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .scanner-result .btn-row {
+      display: flex;
+      gap: 10px;
+    }
+
     @media (min-width: 481px) {
       .summary-bar {
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -759,9 +927,53 @@
     </div>
   </div>
 
+  <!-- Barcode Scanner Overlay -->
+  <div class="scanner-overlay" id="scanner-overlay">
+    <div class="scanner-header">
+      <span class="scanner-title">扫描条形码</span>
+      <button class="scanner-close" id="scanner-close">✕</button>
+    </div>
+    <div class="scanner-body">
+      <div id="scanner-view"></div>
+      <div class="scanner-hint">将条形码对准框内</div>
+    </div>
+    <div class="scanner-result" id="scanner-result">
+      <h3 id="scan-product-name"></h3>
+      <div class="brand" id="scan-product-brand"></div>
+      <div class="nutrients">
+        <div class="nutrient-item">
+          <div class="nutrient-val" id="scan-kcal">-</div>
+          <div class="nutrient-label">热量 kcal</div>
+        </div>
+        <div class="nutrient-item">
+          <div class="nutrient-val" id="scan-protein">-</div>
+          <div class="nutrient-label">蛋白质 g</div>
+        </div>
+        <div class="nutrient-item">
+          <div class="nutrient-val" id="scan-fat">-</div>
+          <div class="nutrient-label">脂肪 g</div>
+        </div>
+        <div class="nutrient-item">
+          <div class="nutrient-val" id="scan-carbs">-</div>
+          <div class="nutrient-label">碳水 g</div>
+        </div>
+      </div>
+      <div class="portion-row">
+        <span>食用份量</span>
+        <input type="number" id="scan-portion" value="100" min="1" step="1" inputmode="numeric">
+        <span>克(g)</span>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="scan-fill-btn" style="flex:2;">填入记录</button>
+        <button class="btn btn-secondary" id="scan-cancel-btn" style="flex:1;">取消</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Summary Bar -->
   <footer class="summary-bar" id="summary-bar"></footer>
 
+  <script src="html5-qrcode.min.js"></script>
   <script src="food-database.js"></script>
   <script>
   (function() {
@@ -1119,6 +1331,7 @@
         html += '<input class="form-input" type="text" name="food" id="food-input" value="' + escapeHtml(foodValue) + '" placeholder="如：鸡胸肉" autocomplete="off" required>';
         html += '<div class="autocomplete-dropdown" id="food-dropdown"></div>';
         html += '</div>';
+        html += '<button type="button" class="scan-btn" id="scan-btn" title="扫描条形码">📷</button>';
         html += '</div>';
 
         html += '<div class="form-row">';
@@ -1187,6 +1400,7 @@
       // Bind autocomplete events for diet form
       if (activeTab === 'diet') {
         bindDietFormEvents();
+        bindScannerEvents();
         // If editing, try to match food to database
         if (editing) {
           var rec = data[editing.type].find(function(r) { return r.id === editing.id; });
@@ -1603,12 +1817,198 @@
     }
 
     // ==================== SW REGISTRATION ====================
-    // Temporarily disabled for debugging
     function registerSW() {
-      // Unregister old SW
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(regs) {
-          regs.forEach(function(reg) { reg.unregister(); });
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(reg) { console.log('SW registered:', reg.scope); })
+          .catch(function(err) { console.log('SW failed:', err); });
+      }
+    }
+
+    // ==================== BARCODE SCANNER ====================
+    var html5Scanner = null;
+    var scannedProduct = null;
+    var BARCODE_CACHE_KEY = 'fitness_barcode_cache';
+
+    function getBarcodeCache() {
+      try { return JSON.parse(localStorage.getItem(BARCODE_CACHE_KEY)) || {}; }
+      catch(e) { return {}; }
+    }
+
+    function saveBarcodeCache(cache) {
+      localStorage.setItem(BARCODE_CACHE_KEY, JSON.stringify(cache));
+    }
+
+    function openScanner() {
+      var overlay = document.getElementById('scanner-overlay');
+      if (!overlay) return;
+      overlay.classList.add('active');
+      document.getElementById('scanner-result').classList.remove('show');
+      scannedProduct = null;
+
+      if (!html5Scanner) {
+        html5Scanner = new Html5Qrcode('scanner-view');
+      }
+
+      html5Scanner.start(
+        { facingMode: 'environment' },
+        { fps: 10, qrbox: { width: 280, height: 180 } },
+        onBarcodeDetected,
+        function() {} // ignore scan errors
+      ).catch(function(err) {
+        console.log('Scanner start error:', err);
+        alert('无法打开摄像头，请检查权限');
+        closeScanner();
+      });
+    }
+
+    function closeScanner() {
+      if (html5Scanner) {
+        html5Scanner.stop().catch(function(){});
+      }
+      var overlay = document.getElementById('scanner-overlay');
+      if (overlay) overlay.classList.remove('active');
+      scannedProduct = null;
+    }
+
+    function onBarcodeDetected(code) {
+      // Stop scanning
+      if (html5Scanner) {
+        html5Scanner.stop().catch(function(){});
+      }
+
+      // Check local cache first
+      var cache = getBarcodeCache();
+      if (cache[code]) {
+        showScannerResult(code, cache[code]);
+        return;
+      }
+
+      // Try Open Food Facts API
+      fetch('https://world.openfoodfacts.org/api/v2/product/' + code)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.status === 1 && data.product) {
+            var p = data.product;
+            var nutriments = p.nutriments || {};
+            var info = {
+              name: p.product_name_zh || p.product_name || p.generic_name || '未知产品',
+              brand: p.brands || '',
+              kcal: Math.round(nutriments['energy-kcal_100g'] || nutriments['energy-kcal'] || 0),
+              protein: parseFloat((nutriments.proteins_100g || 0).toFixed(1)),
+              fat: parseFloat((nutriments.fat_100g || 0).toFixed(1)),
+              carbs: parseFloat((nutriments.carbohydrates_100g || 0).toFixed(1)),
+              serving: parseInt(p.serving_quantity) || 100
+            };
+            // Cache for offline use
+            cache[code] = info;
+            saveBarcodeCache(cache);
+            showScannerResult(code, info);
+          } else {
+            showScannerResult(code, null);
+          }
+        })
+        .catch(function() {
+          showScannerResult(code, null);
+        });
+    }
+
+    function showScannerResult(code, info) {
+      var resultEl = document.getElementById('scanner-result');
+      if (!resultEl) return;
+
+      if (!info) {
+        // Product not found
+        document.getElementById('scan-product-name').textContent = '未找到产品';
+        document.getElementById('scan-product-brand').textContent = '条形码: ' + code;
+        document.getElementById('scan-kcal').textContent = '-';
+        document.getElementById('scan-protein').textContent = '-';
+        document.getElementById('scan-fat').textContent = '-';
+        document.getElementById('scan-carbs').textContent = '-';
+        document.getElementById('scan-portion').value = 100;
+        scannedProduct = { name: '', kcal: 0, protein: 0, fat: 0, carbs: 0, barcode: code };
+      } else {
+        document.getElementById('scan-product-name').textContent = info.name;
+        document.getElementById('scan-product-brand').textContent = info.brand || '';
+        document.getElementById('scan-kcal').textContent = info.kcal;
+        document.getElementById('scan-protein').textContent = info.protein;
+        document.getElementById('scan-fat').textContent = info.fat;
+        document.getElementById('scan-carbs').textContent = info.carbs;
+        document.getElementById('scan-portion').value = info.serving || 100;
+        scannedProduct = info;
+      }
+
+      resultEl.classList.add('show');
+    }
+
+    function fillFromScanner() {
+      if (!scannedProduct) return;
+
+      var foodInput = document.getElementById('food-input');
+      var portionInput = document.getElementById('portion-input');
+      var calInput = document.getElementById('calories-input');
+      var proInput = document.getElementById('protein-input');
+
+      if (foodInput) foodInput.value = scannedProduct.name || '';
+      if (portionInput) portionInput.value = scannedProduct.serving || 100;
+
+      var ratio = (scannedProduct.serving || 100) / 100;
+      if (calInput) calInput.value = Math.round(scannedProduct.kcal * ratio);
+      if (proInput) proInput.value = parseFloat((scannedProduct.protein * ratio).toFixed(1));
+
+      // Try to match with local food database
+      if (scannedProduct.name) {
+        selectedFoodData = null;
+        var found = FOOD_DATABASE.find(function(f) { return f.name === scannedProduct.name; });
+        if (!found) {
+          // Use scanned data directly
+          selectedFoodData = {
+            name: scannedProduct.name,
+            kcal: scannedProduct.kcal,
+            protein: scannedProduct.protein,
+            fat: scannedProduct.fat,
+            carbs: scannedProduct.carbs
+          };
+        } else {
+          selectedFoodData = found;
+        }
+      }
+
+      closeScanner();
+      autoFillNutrition();
+    }
+
+    function bindScannerEvents() {
+      var scanBtn = document.getElementById('scan-btn');
+      if (scanBtn) {
+        scanBtn.addEventListener('click', openScanner);
+      }
+
+      var closeBtn = document.getElementById('scanner-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeScanner);
+      }
+
+      var fillBtn = document.getElementById('scan-fill-btn');
+      if (fillBtn) {
+        fillBtn.addEventListener('click', fillFromScanner);
+      }
+
+      var cancelBtn = document.getElementById('scan-cancel-btn');
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeScanner);
+      }
+
+      // Update nutrition display when portion changes in scanner
+      var scanPortion = document.getElementById('scan-portion');
+      if (scanPortion) {
+        scanPortion.addEventListener('input', function() {
+          if (!scannedProduct) return;
+          var r = parseFloat(scanPortion.value) / 100 || 0;
+          document.getElementById('scan-kcal').textContent = Math.round(scannedProduct.kcal * r);
+          document.getElementById('scan-protein').textContent = parseFloat((scannedProduct.protein * r).toFixed(1));
+          document.getElementById('scan-fat').textContent = parseFloat((scannedProduct.fat * r).toFixed(1));
+          document.getElementById('scan-carbs').textContent = parseFloat((scannedProduct.carbs * r).toFixed(1));
         });
       }
     }
