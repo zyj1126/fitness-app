@@ -1,11 +1,10 @@
 // ==================== fitness PWA Service Worker ====================
 // Network-First for pages, Cache-First for assets
 
-const CACHE_NAME = 'fitness-v7';
+const CACHE_NAME = 'fitness-v8';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
-  './html5-qrcode.min.js',
   './food-database.js'
 ];
 
