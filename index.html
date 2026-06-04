@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#000000">
   <meta name="description" content="fitness - 个人健身和饮食记录">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='47' y='42' width='6' height='16' rx='2' fill='%23bbb'/><rect x='44' y='15' width='12' height='70' rx='5' fill='%23555'/><rect x='8' y='18' width='36' height='18' rx='6' fill='%23111'/><rect x='14' y='22' width='30' height='10' rx='4' fill='%23333'/><rect x='6' y='40' width='38' height='14' rx='5' fill='%23111'/><rect x='12' y='43' width='32' height='8' rx='3' fill='%23333'/><rect x='8' y='58' width='36' height='16' rx='5' fill='%23111'/><rect x='14' y='61' width='30' height='10' rx='4' fill='%23333'/><rect x='56' y='18' width='36' height='18' rx='6' fill='%23111'/><rect x='56' y='22' width='30' height='10' rx='4' fill='%23333'/><rect x='56' y='40' width='38' height='14' rx='5' fill='%23111'/><rect x='56' y='43' width='32' height='8' rx='3' fill='%23333'/><rect x='56' y='58' width='36' height='16' rx='5' fill='%23111'/><rect x='56' y='61' width='30' height='10' rx='4' fill='%23333'/></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='44' y='40' width='12' height='20' rx='3' fill='%23999'/><rect x='30' y='18' width='8' height='64' rx='3' fill='%23333'/><rect x='62' y='18' width='8' height='64' rx='3' fill='%23333'/><rect x='16' y='24' width='14' height='52' rx='4' fill='%23222'/><rect x='70' y='24' width='14' height='52' rx='4' fill='%23222'/><rect x='4' y='30' width='12' height='40' rx='3' fill='%23111'/><rect x='84' y='30' width='12' height='40' rx='3' fill='%23111'/></svg>">
   <title>fitness</title>
   <style>
     /* ===== Reset & Base ===== */
@@ -74,10 +74,115 @@
     }
 
     .header .logo {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       flex-shrink: 0;
     }
+
+    /* ===== CSS Dumbbell ===== */
+    .css-dumbbell-wrapper {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      transition: transform 0.3s ease;
+    }
+
+    .css-dumbbell-wrapper .bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22px;
+      height: 4px;
+      background: linear-gradient(180deg, #c9cdd4 0%, #e8ebf0 20%, #a0a5ad 50%, #d5d9df 80%, #8b9098 100%);
+      border-radius: 2px;
+      z-index: 2;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.2);
+    }
+    .css-dumbbell-wrapper .bar::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 3px;
+      right: 3px;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, transparent, transparent 1.5px, rgba(0,0,0,0.08) 1.5px, rgba(0,0,0,0.08) 2px);
+      border-radius: 1px;
+      z-index: 3;
+    }
+
+    .css-dumbbell-wrapper .inner-collar {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 9px;
+      background: linear-gradient(180deg, #e0e3e8, #9a9fa7, #c8ccd3);
+      border-radius: 1px;
+      z-index: 3;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .css-dumbbell-wrapper .inner-collar.left { left: 4px; }
+    .css-dumbbell-wrapper .inner-collar.right { right: 4px; }
+
+    .css-dumbbell-wrapper .weight-plates-left {
+      position: absolute;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      display: flex; flex-direction: row-reverse;
+      z-index: 1; gap: 1px;
+    }
+    .css-dumbbell-wrapper .weight-plates-right {
+      position: absolute;
+      top: 50%; right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      z-index: 1; gap: 1px;
+    }
+
+    .css-dumbbell-wrapper .plate {
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 1px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .css-dumbbell-wrapper .plate.large {
+      width: 4px; height: 24px; border-radius: 2px;
+      background: linear-gradient(180deg, #3a3f48 0%, #2a2e35 15%, #4a5059 30%, #1f2228 50%, #3d424b 70%, #252930 100%);
+      border: 1px solid #1a1c21;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .css-dumbbell-wrapper .plate.medium {
+      width: 3px; height: 20px; border-radius: 2px;
+      background: linear-gradient(180deg, #4a5059 0%, #353940 15%, #555b65 30%, #2e3238 50%, #484e57 70%, #30343b 100%);
+      border: 1px solid #1e2025;
+    }
+    .css-dumbbell-wrapper .plate.small {
+      width: 2px; height: 16px; border-radius: 1px;
+      background: linear-gradient(180deg, #555b65 0%, #40454d 15%, #606670 30%, #383c44 50%, #525860 70%, #3a3e46 100%);
+      border: 1px solid #22252a;
+    }
+
+    .css-dumbbell-wrapper .outer-collar {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 2px; height: 7px;
+      background: linear-gradient(180deg, #d0d4da, #8e939b, #b8bcc3);
+      border-radius: 1px; z-index: 4;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .css-dumbbell-wrapper .outer-collar.left { left: 1px; }
+    .css-dumbbell-wrapper .outer-collar.right { right: 1px; }
+
+    .css-dumbbell-wrapper .end-cap {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 2px; height: 11px;
+      border-radius: 1px; z-index: 5;
+      background: linear-gradient(180deg, #e8ebf0, #b0b5bd, #d5d9df);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .css-dumbbell-wrapper .end-cap.left { left: 0; }
+    .css-dumbbell-wrapper .end-cap.right { right: 0; }
 
     .header h1 {
       font-size: 22px;
@@ -722,26 +827,25 @@
   <div class="app">
     <!-- Header -->
     <header class="header">
-      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Handle grip marks -->
-        <rect x="47" y="42" width="6" height="16" rx="2" fill="#bbb"/>
-        <!-- Handle bar -->
-        <rect x="44" y="15" width="12" height="70" rx="5" fill="#555"/>
-        <!-- Left plates -->
-        <rect x="8" y="18" width="36" height="18" rx="6" fill="#111"/>
-        <rect x="14" y="22" width="30" height="10" rx="4" fill="#333"/>
-        <rect x="6" y="40" width="38" height="14" rx="5" fill="#111"/>
-        <rect x="12" y="43" width="32" height="8" rx="3" fill="#333"/>
-        <rect x="8" y="58" width="36" height="16" rx="5" fill="#111"/>
-        <rect x="14" y="61" width="30" height="10" rx="4" fill="#333"/>
-        <!-- Right plates -->
-        <rect x="56" y="18" width="36" height="18" rx="6" fill="#111"/>
-        <rect x="56" y="22" width="30" height="10" rx="4" fill="#333"/>
-        <rect x="56" y="40" width="38" height="14" rx="5" fill="#111"/>
-        <rect x="56" y="43" width="32" height="8" rx="3" fill="#333"/>
-        <rect x="56" y="58" width="36" height="16" rx="5" fill="#111"/>
-        <rect x="56" y="61" width="30" height="10" rx="4" fill="#333"/>
-      </svg>
+      <div class="logo css-dumbbell-wrapper">
+        <div class="bar"></div>
+        <div class="inner-collar left"></div>
+        <div class="inner-collar right"></div>
+        <div class="weight-plates-left">
+          <div class="plate small"></div>
+          <div class="plate medium"></div>
+          <div class="plate large"></div>
+        </div>
+        <div class="weight-plates-right">
+          <div class="plate large"></div>
+          <div class="plate medium"></div>
+          <div class="plate small"></div>
+        </div>
+        <div class="outer-collar left"></div>
+        <div class="outer-collar right"></div>
+        <div class="end-cap left"></div>
+        <div class="end-cap right"></div>
+      </div>
       <h1>fitness</h1>
     </header>
 
