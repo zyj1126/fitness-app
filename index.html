@@ -606,9 +606,14 @@
     }
 
     /* ===== Scrollbar Hide ===== */
-    html {
+    html, body {
       scrollbar-width: none;
       -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;
     }
     ::-webkit-scrollbar {
       width: 0;
