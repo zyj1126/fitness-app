@@ -1319,7 +1319,7 @@
           exercise: formData.get('exercise').trim(),
           sets: parseInt(formData.get('sets'), 10) || 0,
           reps: parseInt(formData.get('reps'), 10) || 0,
-          weight: parseFloat(parseFloat(formData.get('weight')).toFixed(2)) || 0
+          weight: parseFloat((parseFloat(formData.get('weight')) || 0).toFixed(2))
         };
 
         if (!record.exercise) return;
@@ -1396,6 +1396,15 @@
         calendarMonth = now.getMonth();
       }
       renderForm();
+    }
+
+    function handleDelete(type, id) {
+      // If deleting the record being edited, cancel edit
+      if (editing && editing.id === id) {
+        cancelEdit();
+      }
+      deleteRecord(type, id);
+      render();
     }
 
     // ==================== FOOD AUTOCOMPLETE ====================
