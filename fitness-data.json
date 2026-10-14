@@ -1,0 +1,2047 @@
+{
+ "schema": "fitness-sync/1",
+ "updatedAt": "2026-10-14T13:01:23.661Z",
+ "revision": 1,
+ "writer": "tautkd",
+ "fitness": [
+  {
+   "date": "2026-10-14",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 0,
+   "id": "mv7x4nsi-pnradq",
+   "_m": 1791970770546
+  },
+  {
+   "date": "2026-10-14",
+   "exercise": "器械上斜",
+   "sets": 3,
+   "reps": 10,
+   "weight": 20,
+   "id": "mv7x4gnw-zqnsqe",
+   "_m": 1791970761308
+  },
+  {
+   "date": "2026-10-14",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 8,
+   "weight": 60,
+   "id": "mv7waj87-a8ajcr",
+   "_m": 1791969364951
+  },
+  {
+   "date": "2026-10-14",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 4,
+   "weight": 70,
+   "id": "mv7wae55-6uobpl",
+   "_m": 1791969358361
+  },
+  {
+   "date": "2026-10-13",
+   "exercise": "杠铃划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 70,
+   "id": "mv6j77y5-xr52lb",
+   "_m": 1791886909181
+  },
+  {
+   "date": "2026-10-13",
+   "exercise": "单手反握下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 30,
+   "id": "mv6imjjc-taukqw",
+   "_m": 1791885944424
+  },
+  {
+   "date": "2026-10-13",
+   "exercise": "对握划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mv6iaf7j-tvhxam",
+   "_m": 1791885378943
+  },
+  {
+   "date": "2026-10-13",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mv6huqno-20gqbx",
+   "_m": 1791884647284
+  },
+  {
+   "date": "2026-10-12",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mv5x2w3f-7ic8fe",
+   "_m": 1791849755643
+  },
+  {
+   "date": "2026-10-12",
+   "exercise": "哑铃推举",
+   "sets": 4,
+   "reps": 10,
+   "weight": 18,
+   "id": "mv5x2mi7-jim8qh",
+   "_m": 1791849743215
+  },
+  {
+   "date": "2026-10-12",
+   "exercise": "器械反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mv5x2bsu-56b9ar",
+   "_m": 1791849729342
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "绳索对握",
+   "sets": 3,
+   "reps": 20,
+   "weight": 8.75,
+   "id": "mv0una33-6xmx76",
+   "_m": 1791543337167
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "颈后三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 8.75,
+   "id": "mv0umuiu-38qswh",
+   "_m": 1791543316998
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "mv0umiz2-dp17zg",
+   "_m": 1791543302030
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16.25,
+   "id": "mv0rikju-t9jcoe",
+   "_m": 1791538078602
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 15,
+   "weight": 15,
+   "id": "mv0r1hzh-5oztay",
+   "_m": 1791537282125
+  },
+  {
+   "date": "2026-10-09",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mv0qdkk3-nb9r7l",
+   "_m": 1791536165715
+  },
+  {
+   "date": "2026-10-08",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 8,
+   "weight": 60,
+   "id": "muzdr5j0-r7mgld",
+   "_m": 1791454498236
+  },
+  {
+   "date": "2026-10-07",
+   "exercise": "对握划船",
+   "sets": 3,
+   "reps": 8,
+   "weight": 52.5,
+   "id": "muxsa5ks-anqwb0",
+   "_m": 1791357967036
+  },
+  {
+   "date": "2026-10-07",
+   "exercise": "对握下拉",
+   "sets": 3,
+   "reps": 10,
+   "weight": 52.5,
+   "id": "muxrw3s5-yjs7if",
+   "_m": 1791357311525
+  },
+  {
+   "date": "2026-10-07",
+   "exercise": "单手划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 30,
+   "id": "muxra432-5mizf2",
+   "_m": 1791356285486
+  },
+  {
+   "date": "2026-10-07",
+   "exercise": "单手反手下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 20,
+   "id": "muxqr0r0-gqwmyg",
+   "_m": 1791355394700
+  },
+  {
+   "date": "2026-10-06",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 0,
+   "id": "muwcfndv-ev4a8z",
+   "_m": 1791270883363
+  },
+  {
+   "date": "2026-10-06",
+   "exercise": "器械推肩",
+   "sets": 4,
+   "reps": 12,
+   "weight": 32,
+   "id": "muwbd0vj-ofgyzc",
+   "_m": 1791269081263
+  },
+  {
+   "date": "2026-10-06",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 15,
+   "weight": 45,
+   "id": "muwb3xrk-uwjy9q",
+   "_m": 1791268657328
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 0,
+   "id": "muwam6q1-7905pe",
+   "_m": 1791267829129
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "颈后",
+   "sets": 3,
+   "reps": 12,
+   "weight": 0,
+   "id": "muwal58p-wkywwf",
+   "_m": 1791267780553
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "muqmhr00-rmp2ur",
+   "_m": 1790924980464
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 25,
+   "id": "muqlz0xo-yjwgvi",
+   "_m": 1790924106876
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 15,
+   "weight": 10,
+   "id": "muqlm5ge-mg897e",
+   "_m": 1790923506206
+  },
+  {
+   "date": "2026-10-02",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "muql567t-emfy57",
+   "_m": 1790922714041
+  },
+  {
+   "date": "2026-09-30",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 8,
+   "weight": 0,
+   "id": "munrt6jl-l61ozl",
+   "_m": 1790752513377
+  },
+  {
+   "date": "2026-09-30",
+   "exercise": "哑铃上斜",
+   "sets": 4,
+   "reps": 12,
+   "weight": 16,
+   "id": "munqrd4v-y1dotf",
+   "_m": 1790750748991
+  },
+  {
+   "date": "2026-09-30",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 7,
+   "weight": 60,
+   "id": "munq44gy-vk33z5",
+   "_m": 1790749664674
+  },
+  {
+   "date": "2026-09-29",
+   "exercise": "单手划船",
+   "sets": 3,
+   "reps": 10,
+   "weight": 67,
+   "id": "mumix3al-5thqda",
+   "_m": 1790677113069
+  },
+  {
+   "date": "2026-09-29",
+   "exercise": "单手反手下拉",
+   "sets": 3,
+   "reps": 8,
+   "weight": 35,
+   "id": "mumiskpk-63jiin",
+   "_m": 1790676902360
+  },
+  {
+   "date": "2026-09-29",
+   "exercise": "对握划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mumis7ai-03mzx0",
+   "_m": 1790676884970
+  },
+  {
+   "date": "2026-09-29",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mumhmmwx-wl74p8",
+   "_m": 1790674945665
+  },
+  {
+   "date": "2026-09-28",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mumhoqov-n3s92v",
+   "_m": 1790675043871
+  },
+  {
+   "date": "2026-09-28",
+   "exercise": "哑铃推肩",
+   "sets": 4,
+   "reps": 10,
+   "weight": 18,
+   "id": "mumhof8s-jxnyuc",
+   "_m": 1790675029036
+  },
+  {
+   "date": "2026-09-28",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mul1qzoq-h629ee",
+   "_m": 1790587808810
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 8.75,
+   "id": "mudxfi54-afy907",
+   "_m": 1790157291160
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "三头颈后",
+   "sets": 3,
+   "reps": 12,
+   "weight": 8.75,
+   "id": "mudx5jml-enyrjv",
+   "_m": 1790156826525
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "器械二头",
+   "sets": 3,
+   "reps": 8,
+   "weight": 27,
+   "id": "mudwt8ep-k6y0mj",
+   "_m": 1790156252113
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16.25,
+   "id": "mudwdmys-lnzckl",
+   "_m": 1790155524484
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 15,
+   "weight": 10,
+   "id": "mudwdbce-nomwi4",
+   "_m": 1790155509422
+  },
+  {
+   "date": "2026-09-23",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mudwcwqi-8q47wm",
+   "_m": 1790155490490
+  },
+  {
+   "date": "2026-09-22",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 0,
+   "id": "munq58gw-qie3qo",
+   "_m": 1790749716512
+  },
+  {
+   "date": "2026-09-22",
+   "exercise": "上斜哑铃",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16,
+   "id": "munq4lq0-0lb2ec",
+   "_m": 1790749687032
+  },
+  {
+   "date": "2026-09-22",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 7,
+   "weight": 60,
+   "id": "muci45wf-3jou6q",
+   "_m": 1790071101663
+  },
+  {
+   "date": "2026-09-21",
+   "exercise": "器械单手划船",
+   "sets": 3,
+   "reps": 10,
+   "weight": 65,
+   "id": "mub2kxch-180vpg",
+   "_m": 1789984543697
+  },
+  {
+   "date": "2026-09-21",
+   "exercise": "单手反握",
+   "sets": 3,
+   "reps": 12,
+   "weight": 35,
+   "id": "mub25bq7-d1f6yv",
+   "_m": 1789983815839
+  },
+  {
+   "date": "2026-09-21",
+   "exercise": "窄握划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mub1gyqs-97u1m7",
+   "_m": 1789982679268
+  },
+  {
+   "date": "2026-09-21",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mub0vjsh-najfsj",
+   "_m": 1789981680113
+  },
+  {
+   "date": "2026-09-20",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mu9qj0cn-uosa4d",
+   "_m": 1789903832711
+  },
+  {
+   "date": "2026-09-20",
+   "exercise": "哑铃推肩",
+   "sets": 4,
+   "reps": 10,
+   "weight": 18,
+   "id": "mu9q40gq-dj2x0e",
+   "_m": 1789903133018
+  },
+  {
+   "date": "2026-09-20",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mu9pe9hr-lswbic",
+   "_m": 1789901931663
+  },
+  {
+   "date": "2026-09-18",
+   "exercise": "俯卧臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 0,
+   "id": "mu6p4vzk-oj8wlv",
+   "_m": 1789720095728
+  },
+  {
+   "date": "2026-09-18",
+   "exercise": "哑铃上斜",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16,
+   "id": "mu6otrw9-j0nbin",
+   "_m": 1789719577209
+  },
+  {
+   "date": "2026-09-18",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 5,
+   "weight": 60,
+   "id": "mu6otj65-o34810",
+   "_m": 1789719565901
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 6.25,
+   "id": "mu5eltfq-eueyaz",
+   "_m": 1789641943622
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "绳索颈后",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.25,
+   "id": "mu5elkij-ti22sy",
+   "_m": 1789641932059
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "mu5e1udq-k493dc",
+   "_m": 1789641011726
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16.25,
+   "id": "mu5db84h-w3yq1f",
+   "_m": 1789639769825
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 18,
+   "id": "mu5dar0o-3pj8el",
+   "_m": 1789639747656
+  },
+  {
+   "date": "2026-09-17",
+   "exercise": "绳索三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.25,
+   "id": "mu5dahw1-xipw9q",
+   "_m": 1789639735825
+  },
+  {
+   "date": "2026-09-16",
+   "exercise": "器械单臂划船",
+   "sets": 3,
+   "reps": 10,
+   "weight": 65,
+   "id": "mu3y27te-3tuvte",
+   "_m": 1789553689106
+  },
+  {
+   "date": "2026-09-16",
+   "exercise": "器械反手下拉",
+   "sets": 3,
+   "reps": 10,
+   "weight": 35,
+   "id": "mu3xkie9-4yjfnr",
+   "_m": 1789552863009
+  },
+  {
+   "date": "2026-09-16",
+   "exercise": "窄握划船",
+   "sets": 3,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mu3x7z1i-3in0mq",
+   "_m": 1789552278054
+  },
+  {
+   "date": "2026-09-16",
+   "exercise": "窄距下拉",
+   "sets": 3,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mu3wu796-bxkm3g",
+   "_m": 1789551635514
+  },
+  {
+   "date": "2026-09-15",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mu2i8oso-nklmoc",
+   "_m": 1789466651016
+  },
+  {
+   "date": "2026-09-15",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mu2hnipt-ukwlq1",
+   "_m": 1789465663361
+  },
+  {
+   "date": "2026-09-15",
+   "exercise": "器械推肩",
+   "sets": 4,
+   "reps": 12,
+   "weight": 20,
+   "id": "mu2h7s79-tzjk7b",
+   "_m": 1789464929157
+  },
+  {
+   "date": "2026-09-11",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 6,
+   "weight": 0,
+   "id": "mtxntalu-3v9oeq",
+   "_m": 1789173679602
+  },
+  {
+   "date": "2026-09-11",
+   "exercise": "哑铃上斜",
+   "sets": 3,
+   "reps": 10,
+   "weight": 16,
+   "id": "mtxnsqqd-a5d7t5",
+   "_m": 1789173653845
+  },
+  {
+   "date": "2026-09-11",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 6,
+   "weight": 60,
+   "id": "mtxnsfv8-jfs8go",
+   "_m": 1789173639764
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 6.75,
+   "id": "mttzen2p-mbfx6z",
+   "_m": 1788951286609
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "颈后三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mttzeg19-60rb8t",
+   "_m": 1788951277485
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "哑铃二头",
+   "sets": 3,
+   "reps": 8,
+   "weight": 10,
+   "id": "mttx0l64-yz7pyj",
+   "_m": 1788947271724
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16.25,
+   "id": "mttwksmz-ktb5zy",
+   "_m": 1788946534907
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "杠铃三头",
+   "sets": 3,
+   "reps": 15,
+   "weight": 10,
+   "id": "mttwjutr-z66nb6",
+   "_m": 1788946491087
+  },
+  {
+   "date": "2026-09-09",
+   "exercise": "绳索三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mttvn25p-lo3hhb",
+   "_m": 1788944960941
+  },
+  {
+   "date": "2026-09-08",
+   "exercise": "器械反手划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 59,
+   "id": "mtsiayra-4045jo",
+   "_m": 1788862095478
+  },
+  {
+   "date": "2026-09-08",
+   "exercise": "反手下拉",
+   "sets": 3,
+   "reps": 10,
+   "weight": 30,
+   "id": "mtsi957c-qmugnx",
+   "_m": 1788862010520
+  },
+  {
+   "date": "2026-09-08",
+   "exercise": "v把划船",
+   "sets": 3,
+   "reps": 8,
+   "weight": 48.75,
+   "id": "mtsi8tnk-ukf60j",
+   "_m": 1788861995552
+  },
+  {
+   "date": "2026-09-08",
+   "exercise": "v把下拉",
+   "sets": 3,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mtsh1h8r-8nh919",
+   "_m": 1788859973259
+  },
+  {
+   "date": "2026-09-06",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mtpi161d-hec2ub",
+   "_m": 1788680239825
+  },
+  {
+   "date": "2026-09-06",
+   "exercise": "器械前束",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "mtphdttl-k82mzm",
+   "_m": 1788679150905
+  },
+  {
+   "date": "2026-09-06",
+   "exercise": "反向飞鸟",
+   "sets": 3,
+   "reps": 12,
+   "weight": 39,
+   "id": "mtph3jkx-zv0e1p",
+   "_m": 1788678671073
+  },
+  {
+   "date": "2026-08-27",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mtb2pkmr-fcwhc3",
+   "_m": 1787807978163
+  },
+  {
+   "date": "2026-08-27",
+   "exercise": "器械前束",
+   "sets": 3,
+   "reps": 12,
+   "weight": 25,
+   "id": "mtb2o79p-xdagz1",
+   "_m": 1787807914189
+  },
+  {
+   "date": "2026-08-27",
+   "exercise": "反向飞鸟",
+   "sets": 3,
+   "reps": 12,
+   "weight": 45,
+   "id": "mtb22xsi-8pojmg",
+   "_m": 1787806922130
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 6.5,
+   "id": "mt2eti5f-7crzq1",
+   "_m": 1787284121379
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "绳索颈后",
+   "sets": 3,
+   "reps": 12,
+   "weight": 5,
+   "id": "mt2e34hk-7p3xtr",
+   "_m": 1787282890616
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "mt2e0ku6-vcfzyr",
+   "_m": 1787282771838
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "mt2d2208-kjx6oc",
+   "_m": 1787281161128
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "哑铃颈后",
+   "sets": 3,
+   "reps": 12,
+   "weight": 17.5,
+   "id": "mt2cj4nx-9978bg",
+   "_m": 1787280278109
+  },
+  {
+   "date": "2026-08-21",
+   "exercise": "绳索三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mt2c7mbn-iun1lt",
+   "_m": 1787279741123
+  },
+  {
+   "date": "2026-08-20",
+   "exercise": "俯卧臂屈伸",
+   "sets": 3,
+   "reps": 8,
+   "weight": 0,
+   "id": "mt0yvp1f-f1mb0m",
+   "_m": 1787196883587
+  },
+  {
+   "date": "2026-08-20",
+   "exercise": "器械上斜",
+   "sets": 3,
+   "reps": 12,
+   "weight": 35,
+   "id": "mt0yb7y5-y9tv6t",
+   "_m": 1787195928317
+  },
+  {
+   "date": "2026-08-20",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 7,
+   "weight": 55,
+   "id": "mt0xq3i6-05bmqu",
+   "_m": 1787194942782
+  },
+  {
+   "date": "2026-08-20",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 4,
+   "weight": 63,
+   "id": "mt0x2wqy-fjs2yr",
+   "_m": 1787193860938
+  },
+  {
+   "date": "2026-08-19",
+   "exercise": "反手划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 54,
+   "id": "mszisrv3-hhr3wp",
+   "_m": 1787109407247
+  },
+  {
+   "date": "2026-08-19",
+   "exercise": "器械单手下拉",
+   "sets": 3,
+   "reps": 10,
+   "weight": 25,
+   "id": "mszii61b-9lujg1",
+   "_m": 1787108912399
+  },
+  {
+   "date": "2026-08-19",
+   "exercise": "器械单手划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 40,
+   "id": "mszihofc-5umyqn",
+   "_m": 1787108889576
+  },
+  {
+   "date": "2026-08-19",
+   "exercise": "飞机拉背",
+   "sets": 3,
+   "reps": 12,
+   "weight": 80,
+   "id": "mszihcok-7jf6d1",
+   "_m": 1787108874356
+  },
+  {
+   "date": "2026-08-17",
+   "exercise": "悬垂举腿",
+   "sets": 3,
+   "reps": 15,
+   "weight": 0,
+   "id": "mswnwzeb-zbzxmz",
+   "_m": 1786936603187
+  },
+  {
+   "date": "2026-08-17",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mswnd275-71oumd",
+   "_m": 1786935673697
+  },
+  {
+   "date": "2026-08-17",
+   "exercise": "哑铃推肩",
+   "sets": 4,
+   "reps": 12,
+   "weight": 16,
+   "id": "mswn16io-9xiuav",
+   "_m": 1786935119424
+  },
+  {
+   "date": "2026-08-17",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 40,
+   "id": "mswmeqdw-h5n1nk",
+   "_m": 1786934072084
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 7.5,
+   "id": "msv8sm5j-3uuuon",
+   "_m": 1786850738983
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "绳索颈后",
+   "sets": 3,
+   "reps": 15,
+   "weight": 5,
+   "id": "msv8hifp-wf0ttn",
+   "_m": 1786850220949
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "msv83c98-sdsixn",
+   "_m": 1786849559756
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "msv7qjrr-bd4vip",
+   "_m": 1786848962967
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "哑铃颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 16,
+   "id": "msv7mgf5-7wutng",
+   "_m": 1786848772001
+  },
+  {
+   "date": "2026-08-16",
+   "exercise": "绳索三头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.5,
+   "id": "msv7kyd8-53in3m",
+   "_m": 1786848701948
+  },
+  {
+   "date": "2026-08-13",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 8,
+   "weight": 0,
+   "id": "msr6q9ml-r9u6ur",
+   "_m": 1786605405501
+  },
+  {
+   "date": "2026-08-13",
+   "exercise": "器械上斜",
+   "sets": 3,
+   "reps": 10,
+   "weight": 35,
+   "id": "msr6cbda-za1p5b",
+   "_m": 1786604754574
+  },
+  {
+   "date": "2026-08-13",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 7,
+   "weight": 55,
+   "id": "msr5r2pe-k5t2ll",
+   "_m": 1786603763570
+  },
+  {
+   "date": "2026-08-13",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 4,
+   "weight": 63,
+   "id": "msr5qlkx-kqca1u",
+   "_m": 1786603741377
+  },
+  {
+   "date": "2026-08-12",
+   "exercise": "t字划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 25,
+   "id": "msprzwxz-aay6no",
+   "_m": 1786520195207
+  },
+  {
+   "date": "2026-08-12",
+   "exercise": "器械划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 35,
+   "id": "msprjkkb-3vdah1",
+   "_m": 1786519432667
+  },
+  {
+   "date": "2026-08-12",
+   "exercise": "器械对握",
+   "sets": 3,
+   "reps": 12,
+   "weight": 80,
+   "id": "mspr5lif-3f8kts",
+   "_m": 1786518780711
+  },
+  {
+   "date": "2026-08-12",
+   "exercise": "窄握划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 57,
+   "id": "mspqsju7-wvdpsc",
+   "_m": 1786518172015
+  },
+  {
+   "date": "2026-08-11",
+   "exercise": "器械推举",
+   "sets": 3,
+   "reps": 8,
+   "weight": 15,
+   "id": "msob8nks-x36ukh",
+   "_m": 1786431583324
+  },
+  {
+   "date": "2026-08-11",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 10,
+   "weight": 6,
+   "id": "msoapouf-04qm31",
+   "_m": 1786430698503
+  },
+  {
+   "date": "2026-08-11",
+   "exercise": "哑铃推举",
+   "sets": 3,
+   "reps": 10,
+   "weight": 16,
+   "id": "msoacc0h-ba7a99",
+   "_m": 1786430075345
+  },
+  {
+   "date": "2026-08-11",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 40,
+   "id": "mso9p5a0-rgve69",
+   "_m": 1786428993528
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "垂式",
+   "sets": 3,
+   "reps": 20,
+   "weight": 7.5,
+   "id": "msim75yn-12nw1w",
+   "_m": 1786087192559
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "绳索颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 5,
+   "id": "msim1unt-zp6c31",
+   "_m": 1786086944633
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "msildj9t-by34sr",
+   "_m": 1786085810129
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "msilcs3o-iorc2j",
+   "_m": 1786085774916
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "msike3gc-4vd3kq",
+   "_m": 1786084156668
+  },
+  {
+   "date": "2026-08-07",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.5,
+   "id": "msijvyvh-4s2hw1",
+   "_m": 1786083310925
+  },
+  {
+   "date": "2026-08-06",
+   "exercise": "俯卧臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 33,
+   "id": "msh68oqv-j3wsce",
+   "_m": 1785999923527
+  },
+  {
+   "date": "2026-08-06",
+   "exercise": "器械上斜",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "msh5tjnp-na0ca2",
+   "_m": 1785999217093
+  },
+  {
+   "date": "2026-08-06",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 7,
+   "weight": 55,
+   "id": "msh53lbj-ka3ntp",
+   "_m": 1785998006191
+  },
+  {
+   "date": "2026-08-06",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 4,
+   "weight": 62,
+   "id": "msh5360z-54j1qx",
+   "_m": 1785997986371
+  },
+  {
+   "date": "2026-08-05",
+   "exercise": "站姿划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 25,
+   "id": "msfrbiso-mh6scj",
+   "_m": 1785914395368
+  },
+  {
+   "date": "2026-08-05",
+   "exercise": "反手下拉",
+   "sets": 3,
+   "reps": 12,
+   "weight": 35,
+   "id": "msfrb1x8-6gmgdn",
+   "_m": 1785914373500
+  },
+  {
+   "date": "2026-08-05",
+   "exercise": "单手器械划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 35,
+   "id": "msfq8zqp-8mnp0z",
+   "_m": 1785912597745
+  },
+  {
+   "date": "2026-08-05",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 80,
+   "id": "msfpn569-5awwom",
+   "_m": 1785911578353
+  },
+  {
+   "date": "2026-07-31",
+   "exercise": "机械侧平举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 25,
+   "id": "ms8lg2ge-k9jdzt",
+   "_m": 1785481266542
+  },
+  {
+   "date": "2026-07-31",
+   "exercise": "哑铃推肩",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "ms8ky89v-yxwai5",
+   "_m": 1785480434275
+  },
+  {
+   "date": "2026-07-31",
+   "exercise": "y举",
+   "sets": 2,
+   "reps": 10,
+   "weight": 3.5,
+   "id": "ms8kna0w-1zd97q",
+   "_m": 1785479923328
+  },
+  {
+   "date": "2026-07-31",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 33,
+   "id": "ms8jsj0n-et9dxy",
+   "_m": 1785478488647
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "锤式弯举",
+   "sets": 3,
+   "reps": 20,
+   "weight": 7.5,
+   "id": "ms5qvzxc-n8h9d1",
+   "_m": 1785309009312
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "绳索颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 5,
+   "id": "ms5qvqwq-h0ztvf",
+   "_m": 1785308997626
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "ms5qc5oi-02hart",
+   "_m": 1785308083650
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 14,
+   "id": "ms5pujnq-dcskmo",
+   "_m": 1785307261958
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 15,
+   "weight": 15,
+   "id": "ms5p93mm-0c8cpd",
+   "_m": 1785306261406
+  },
+  {
+   "date": "2026-07-29",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.5,
+   "id": "ms5p30wc-pwpt7w",
+   "_m": 1785305977932
+  },
+  {
+   "date": "2026-07-28",
+   "exercise": "器械平推",
+   "sets": 3,
+   "reps": 12,
+   "weight": 15,
+   "id": "ms4b4sjj-h99tyh",
+   "_m": 1785222079615
+  },
+  {
+   "date": "2026-07-28",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 10,
+   "weight": 19,
+   "id": "ms4awula-oatmcs",
+   "_m": 1785221709022
+  },
+  {
+   "date": "2026-07-28",
+   "exercise": "哑铃上斜",
+   "sets": 3,
+   "reps": 10,
+   "weight": 14,
+   "id": "ms4akk7q-nmulxx",
+   "_m": 1785221135702
+  },
+  {
+   "date": "2026-07-28",
+   "exercise": "卧推",
+   "sets": 2,
+   "reps": 5,
+   "weight": 60,
+   "id": "ms4a3cmz-6wq7ek",
+   "_m": 1785220332731
+  },
+  {
+   "date": "2026-07-27",
+   "exercise": "鹦鹉螺",
+   "sets": 3,
+   "reps": 12,
+   "weight": 30,
+   "id": "ms2w7fic-upy01e",
+   "_m": 1785136542276
+  },
+  {
+   "date": "2026-07-27",
+   "exercise": "反手下拉",
+   "sets": 3,
+   "reps": 12,
+   "weight": 35,
+   "id": "ms2vo9wa-wckaqy",
+   "_m": 1785135648538
+  },
+  {
+   "date": "2026-07-27",
+   "exercise": "单手划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 25,
+   "id": "ms2uur3s-9sb4k6",
+   "_m": 1785134271160
+  },
+  {
+   "date": "2026-07-27",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 80,
+   "id": "ms2u52rk-1rjdg2",
+   "_m": 1785133073216
+  },
+  {
+   "date": "2026-07-26",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 40,
+   "id": "ms1g2dob-pzwkbh",
+   "_m": 1785048966587
+  },
+  {
+   "date": "2026-07-26",
+   "exercise": "器械对握推肩",
+   "sets": 2,
+   "reps": 9,
+   "weight": 10,
+   "id": "ms1fursd-zk7awx",
+   "_m": 1785048611629
+  },
+  {
+   "date": "2026-07-26",
+   "exercise": "y举",
+   "sets": 3,
+   "reps": 8,
+   "weight": 5,
+   "id": "ms1f5n0i-8qlfh8",
+   "_m": 1785047439042
+  },
+  {
+   "date": "2026-07-26",
+   "exercise": "哑铃推肩",
+   "sets": 3,
+   "reps": 12,
+   "weight": 14,
+   "id": "ms1ep5y3-ajha2f",
+   "_m": 1785046670427
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "锤式弯举",
+   "sets": 3,
+   "reps": 20,
+   "weight": 6.25,
+   "id": "mrn8hld6-lcndax",
+   "_m": 1784189713002
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "绳索单手颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.25,
+   "id": "mrn7xs5u-jne89t",
+   "_m": 1784188788690
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "仰卧二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6,
+   "id": "mrn7aww7-wg9kqr",
+   "_m": 1784187721735
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "龙门架二头弯举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 13.75,
+   "id": "mrn6jp8u-2u84um",
+   "_m": 1784186452110
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "mrn6bu6p-o841pf",
+   "_m": 1784186085265
+  },
+  {
+   "date": "2026-07-16",
+   "exercise": "钢索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.75,
+   "id": "mrn5qfut-8vdiv0",
+   "_m": 1784185086917
+  },
+  {
+   "date": "2026-07-14",
+   "exercise": "臂屈伸",
+   "sets": 4,
+   "reps": 10,
+   "weight": 20,
+   "id": "mrkb9tsn-dzfymw",
+   "_m": 1784012990999
+  },
+  {
+   "date": "2026-07-14",
+   "exercise": "上斜",
+   "sets": 4,
+   "reps": 8,
+   "weight": 20,
+   "id": "mrkanemm-78rbwt",
+   "_m": 1784011944910
+  },
+  {
+   "date": "2026-07-14",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 7,
+   "weight": 60,
+   "id": "mrka1igx-cw1fb0",
+   "_m": 1784010923457
+  },
+  {
+   "date": "2026-07-13",
+   "exercise": "反手划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 59,
+   "id": "mrja03t0-rlqjox",
+   "_m": 1783950391620
+  },
+  {
+   "date": "2026-07-13",
+   "exercise": "反握下拉",
+   "sets": 4,
+   "reps": 8,
+   "weight": 35,
+   "id": "mrivmvd0-p40yp4",
+   "_m": 1783926259524
+  },
+  {
+   "date": "2026-07-13",
+   "exercise": "窄距划船",
+   "sets": 4,
+   "reps": 8,
+   "weight": 48.75,
+   "id": "mrivcklp-bcnh98",
+   "_m": 1783925779021
+  },
+  {
+   "date": "2026-07-13",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mriuk3al-gwke9w",
+   "_m": 1783924450221
+  },
+  {
+   "date": "2026-07-07",
+   "exercise": "器械推肩",
+   "sets": 3,
+   "reps": 10,
+   "weight": 20,
+   "id": "mracnlte-k6ozqu",
+   "_m": 1783410651698
+  },
+  {
+   "date": "2026-07-07",
+   "exercise": "y举",
+   "sets": 5,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mracnb54-qzatx6",
+   "_m": 1783410637864
+  },
+  {
+   "date": "2026-07-07",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mra9vo9s-glc7u7",
+   "_m": 1783405989280
+  },
+  {
+   "date": "2026-07-06",
+   "exercise": "三头臂屈伸",
+   "sets": 4,
+   "reps": 10,
+   "weight": 10,
+   "id": "mr8wdcf0-o16dkf",
+   "_m": 1783322832924
+  },
+  {
+   "date": "2026-07-06",
+   "exercise": "器械臂屈伸",
+   "sets": 3,
+   "reps": 10,
+   "weight": 20,
+   "id": "mr8v773f-p7k3wu",
+   "_m": 1783320866475
+  },
+  {
+   "date": "2026-07-06",
+   "exercise": "器械上斜",
+   "sets": 4,
+   "reps": 10,
+   "weight": 20,
+   "id": "mr8ungvu-ehpb1y",
+   "_m": 1783319946042
+  },
+  {
+   "date": "2026-07-06",
+   "exercise": "卧推",
+   "sets": 5,
+   "reps": 5,
+   "weight": 60,
+   "id": "mr8tyxyz-kvrrwi",
+   "_m": 1783318801787
+  },
+  {
+   "date": "2026-06-29",
+   "exercise": "牧师凳",
+   "sets": 3,
+   "reps": 8,
+   "weight": 20,
+   "id": "mqywjhse-hhh5gx",
+   "_m": 1782718458062
+  },
+  {
+   "date": "2026-06-29",
+   "exercise": "反手划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 60,
+   "id": "mqyvpybb-uvdols",
+   "_m": 1782717079799
+  },
+  {
+   "date": "2026-06-29",
+   "exercise": "反手下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 52,
+   "id": "mqyvpoh4-wv55u9",
+   "_m": 1782717067048
+  },
+  {
+   "date": "2026-06-29",
+   "exercise": "单手器械划船",
+   "sets": 4,
+   "reps": 8,
+   "weight": 40,
+   "id": "mqyum4yt-81flsr",
+   "_m": 1782715222181
+  },
+  {
+   "date": "2026-06-29",
+   "exercise": "反手器械下拉",
+   "sets": 4,
+   "reps": 8,
+   "weight": 35,
+   "id": "mqyu1pty-olqrtj",
+   "_m": 1782714269446
+  },
+  {
+   "date": "2026-06-27",
+   "exercise": "器械推肩",
+   "sets": 3,
+   "reps": 8,
+   "weight": 20,
+   "id": "mqw44o2o-vkwkqn",
+   "_m": 1782549804768
+  },
+  {
+   "date": "2026-06-27",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mqw44hxr-67zp79",
+   "_m": 1782549796815
+  },
+  {
+   "date": "2026-06-27",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mqw4488q-r2179z",
+   "_m": 1782549784250
+  },
+  {
+   "date": "2026-06-26",
+   "exercise": "龙门架单臂屈伸",
+   "sets": 3,
+   "reps": 10,
+   "weight": 6.25,
+   "id": "mquo64zo-lpg77i",
+   "_m": 1782462533316
+  },
+  {
+   "date": "2026-06-26",
+   "exercise": "双杠",
+   "sets": 2,
+   "reps": 5,
+   "weight": 0,
+   "id": "mqunzljm-hsylj1",
+   "_m": 1782462228178
+  },
+  {
+   "date": "2026-06-26",
+   "exercise": "哑铃上斜",
+   "sets": 3,
+   "reps": 10,
+   "weight": 16,
+   "id": "mqunpb1y-pyhnbx",
+   "_m": 1782461748022
+  },
+  {
+   "date": "2026-06-26",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 7,
+   "weight": 60,
+   "id": "mqun9z3y-rxwwqk",
+   "_m": 1782461032702
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "杠铃二头弯举",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "mqp1x87e-oocrms",
+   "_m": 1782122835146
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "反手下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 52,
+   "id": "mqowlwyo-2vg4wx",
+   "_m": 1782113909280
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "宽距划船",
+   "sets": 2,
+   "reps": 10,
+   "weight": 38.75,
+   "id": "mqowfkcz-xj8jly",
+   "_m": 1782113613011
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "窄距划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 38.75,
+   "id": "mqowfaoy-qfro90",
+   "_m": 1782113600482
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mqovc1bm-ujwnsn",
+   "_m": 1782111768754
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "窄距下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 50,
+   "id": "mqouduch-7eln03",
+   "_m": 1782110173409
+  },
+  {
+   "date": "2026-06-22",
+   "exercise": "直臂下压",
+   "sets": 4,
+   "reps": 10,
+   "weight": 21.75,
+   "id": "mqoud0xh-dlwks8",
+   "_m": 1782110135285
+  },
+  {
+   "date": "2026-06-12",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mqayd04m-k73v9x",
+   "_m": 1781270326246
+  },
+  {
+   "date": "2026-06-12",
+   "exercise": "反握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 52,
+   "id": "mqaycpup-jd2lur",
+   "_m": 1781270312929
+  },
+  {
+   "date": "2026-06-12",
+   "exercise": "器械划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 57.5,
+   "id": "mqalay63-rqlhd9",
+   "_m": 1781248395387
+  },
+  {
+   "date": "2026-06-12",
+   "exercise": "龙门架单臂下拉",
+   "sets": 4,
+   "reps": 8,
+   "weight": 23.75,
+   "id": "mqakk05x-jb6gqq",
+   "_m": 1781247138261
+  },
+  {
+   "date": "2026-06-12",
+   "exercise": "窄握下压",
+   "sets": 4,
+   "reps": 12,
+   "weight": 46.75,
+   "id": "mqajz40g-peil90",
+   "_m": 1781246163472
+  },
+  {
+   "date": "2026-06-09",
+   "exercise": "龙门架二头弯举",
+   "sets": 3,
+   "reps": 8,
+   "weight": 13.75,
+   "id": "mq6chtu0-orw3hn",
+   "_m": 1780991735112
+  },
+  {
+   "date": "2026-06-09",
+   "exercise": "反握器械划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 59,
+   "id": "mq6c11wb-5usyur",
+   "_m": 1780990952411
+  },
+  {
+   "date": "2026-06-09",
+   "exercise": "正手宽握高位下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 59,
+   "id": "mq6brh45-nqhij5",
+   "_m": 1780990505573
+  },
+  {
+   "date": "2026-06-09",
+   "exercise": "v把划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mq6b3g4v-v4kxxy",
+   "_m": 1780989384559
+  },
+  {
+   "date": "2026-06-09",
+   "exercise": "反手单边下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 35,
+   "id": "mq6ac8kd-szyylf",
+   "_m": 1780988115037
+  },
+  {
+   "date": "2026-06-05",
+   "exercise": "龙门架三头下压",
+   "sets": 4,
+   "reps": 12,
+   "weight": 18.75,
+   "id": "mq0k5bsh-lgogw1",
+   "_m": 1780641791729
+  },
+  {
+   "date": "2026-06-05",
+   "exercise": "双杠臂屈伸",
+   "sets": 4,
+   "reps": 8,
+   "weight": 20,
+   "id": "mq0k0991-as3kkz",
+   "_m": 1780641555157
+  },
+  {
+   "date": "2026-06-05",
+   "exercise": "哑铃上斜",
+   "sets": 4,
+   "reps": 10,
+   "weight": 16,
+   "id": "mq0j493a-i0k262",
+   "_m": 1780640061958
+  },
+  {
+   "date": "2026-06-05",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 6,
+   "weight": 60,
+   "id": "mq0ieebf-4u60gl",
+   "_m": 1780638855675
+  },
+  {
+   "date": "2026-06-04",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mqw2wu9g-aoppdo",
+   "_m": 1782547759924
+  },
+  {
+   "date": "2026-06-04",
+   "exercise": "坐姿反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 32,
+   "id": "mpz7yj04-5nk77x",
+   "_m": 1780560852916
+  },
+  {
+   "date": "2026-06-04",
+   "exercise": "器械坐姿推肩",
+   "sets": 4,
+   "reps": 8,
+   "weight": 20,
+   "id": "mpz7gqoq-vjrwdv",
+   "_m": 1780560023066
+  },
+  {
+   "date": "2026-06-04",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mpz7eoos-43uqry",
+   "_m": 1780559927164
+  },
+  {
+   "date": "2026-06-03",
+   "exercise": "器械二头弯举",
+   "sets": 4,
+   "reps": 9,
+   "weight": 35,
+   "id": "mpxr064w-zgyydj",
+   "_m": 1780471909904
+  },
+  {
+   "date": "2026-06-03",
+   "exercise": "单臂器械划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 50,
+   "id": "mpxouemn-cnqscd",
+   "_m": 1780468281743
+  },
+  {
+   "date": "2026-06-03",
+   "exercise": "杠铃划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 60,
+   "id": "mpxo0ptn-b41e38",
+   "_m": 1780466896571
+  },
+  {
+   "date": "2026-06-03",
+   "exercise": "反握单手下拉",
+   "sets": 4,
+   "reps": 10,
+   "weight": 35,
+   "id": "mpxnfnlo-207uoa",
+   "_m": 1780465913916
+  },
+  {
+   "date": "2026-06-03",
+   "exercise": "引体向上",
+   "sets": 4,
+   "reps": 10,
+   "weight": 0,
+   "id": "mpxmvues-9vuzrx",
+   "_m": 1780464989620
+  }
+ ],
+ "diet": [],
+ "deleted": {
+  "fitness": {},
+  "diet": {}
+ }
+}
