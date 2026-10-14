@@ -10,6 +10,9 @@
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='44' y='40' width='12' height='20' rx='3' fill='%23999'/><rect x='30' y='18' width='8' height='64' rx='3' fill='%23333'/><rect x='62' y='18' width='8' height='64' rx='3' fill='%23333'/><rect x='16' y='24' width='14' height='52' rx='4' fill='%23222'/><rect x='70' y='24' width='14' height='52' rx='4' fill='%23222'/><rect x='4' y='30' width='12' height='40' rx='3' fill='%23111'/><rect x='84' y='30' width='12' height='40' rx='3' fill='%23111'/></svg>">
   <title>fitness</title>
+  <!-- 备份/同步模块。必须是 defer:它要在 App 的代码存在之后、loadData() 执行之前运行,
+       以便在 App 首次读取之前把被清空的存储恢复好。改动请同步升 ?v= 并升 service-worker 的 CACHE_NAME。 -->
+  <script src="sync.js?v=1" defer></script>
   <style>
     /* ===== Reset & Base ===== */
     *, *::before, *::after {

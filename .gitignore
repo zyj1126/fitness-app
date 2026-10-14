@@ -1,3 +1,8 @@
 node_modules/
 package.json
 package-lock.json
+
+# 本地 HTTPS 调试服务器的证书/私钥,不能进公开仓库
+server.key
+server.crt
+*.pem

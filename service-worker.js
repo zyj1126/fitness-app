@@ -1,11 +1,12 @@
 // ==================== fitness PWA Service Worker ====================
 // Network-First for pages, Cache-First for assets
 
-const CACHE_NAME = 'fitness-v9';
+const CACHE_NAME = 'fitness-v10';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
-  './food-database.js'
+  './food-database.js',
+  './sync.js'
 ];
 
 // ==================== INSTALL ====================
@@ -46,6 +47,11 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   if (!event.request.url.startsWith('http')) return;
+
+  // 只接管本站请求。跨域请求(尤其是 sync.js 对 api.github.com 的读写)绝不能进来:
+  // 缓存优先分支会把带 Authorization 的 API 请求也缓存,导致后续读到过期的 sha,
+  // 同步会静默失效 —— 看起来在工作,其实一直合并的是旧数据。
+  if (!event.request.url.startsWith(self.location.origin)) return;
 
   const isNavigation = event.request.mode === 'navigate';
 
