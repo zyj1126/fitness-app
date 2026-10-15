@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-15T10:06:55.667Z",
- "revision": 5,
+ "updatedAt": "2026-10-15T10:19:06.957Z",
+ "revision": 6,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-10-15",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 15,
+   "weight": 18.75,
+   "id": "mv9dze82-xd8vxn",
+   "_m": 1792059544514
+  },
   {
    "date": "2026-10-15",
    "exercise": "碎颅者",
