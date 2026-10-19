@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-19T10:36:46.086Z",
- "revision": 16,
+ "updatedAt": "2026-10-19T10:53:45.969Z",
+ "revision": 17,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-10-19",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mvf4yuld-95a508",
+   "_m": 1792407199585
+  },
   {
    "date": "2026-10-19",
    "exercise": "器械反向飞鸟",
