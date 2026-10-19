@@ -1,17 +1,26 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-19T10:21:52.544Z",
- "revision": 14,
+ "updatedAt": "2026-10-19T10:30:44.598Z",
+ "revision": 15,
  "writer": "tautkd",
  "fitness": [
   {
    "date": "2026-10-19",
    "exercise": "器械反向飞鸟",
-   "sets": 3,
+   "sets": 4,
    "reps": 12,
    "weight": 39,
    "id": "mvf3tu94-a6yogj",
-   "_m": 1792405286248
+   "_m": 1792405842709
+  },
+  {
+   "date": "2026-10-19",
+   "exercise": "哑铃推肩",
+   "sets": 3,
+   "reps": 10,
+   "weight": 18,
+   "id": "mvf45hs5-376pis",
+   "_m": 1792405829957
   },
   {
    "date": "2026-10-15",
