@@ -1,17 +1,17 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-20T09:50:57.037Z",
- "revision": 19,
+ "updatedAt": "2026-10-20T09:52:51.106Z",
+ "revision": 20,
  "writer": "tautkd",
  "fitness": [
   {
    "date": "2026-10-20",
    "exercise": "对握下拉",
-   "sets": 4,
+   "sets": 3,
    "reps": 12,
-   "weight": 48.75,
+   "weight": 66,
    "id": "mvgi2hq3-zm705n",
-   "_m": 1792489670715
+   "_m": 1792489969162
   },
   {
    "date": "2026-10-19",
