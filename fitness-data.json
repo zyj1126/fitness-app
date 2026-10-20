@@ -1,9 +1,27 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-20T09:53:21.662Z",
- "revision": 20,
+ "updatedAt": "2026-10-20T10:37:44.545Z",
+ "revision": 21,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-10-20",
+   "exercise": "单手反手下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 30,
+   "id": "mvgju18u-fs1jcq",
+   "_m": 1792492635342
+  },
+  {
+   "date": "2026-10-20",
+   "exercise": "对握划船",
+   "sets": 4,
+   "reps": 10,
+   "weight": 48.75,
+   "id": "mvgjto0y-a17cip",
+   "_m": 1792492618210
+  },
   {
    "date": "2026-10-20",
    "exercise": "对握下拉",
