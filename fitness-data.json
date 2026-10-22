@@ -1,9 +1,45 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-21T11:19:28.458Z",
- "revision": 23,
+ "updatedAt": "2026-10-22T09:52:38.626Z",
+ "revision": 24,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-10-21",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 0,
+   "id": "mvi0u2c4-0xt5iu",
+   "_m": 1792581656404
+  },
+  {
+   "date": "2026-10-21",
+   "exercise": "器械夹胸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 39,
+   "id": "mvi0tqbq-p2i0d0",
+   "_m": 1792581640838
+  },
+  {
+   "date": "2026-10-21",
+   "exercise": "哑铃上斜",
+   "sets": 4,
+   "reps": 10,
+   "weight": 18,
+   "id": "mvi0taqz-t3ac5e",
+   "_m": 1792581620651
+  },
+  {
+   "date": "2026-10-21",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 8,
+   "weight": 60,
+   "id": "mvi0syhh-l43drr",
+   "_m": 1792581604757
+  },
   {
    "date": "2026-10-20",
    "exercise": "单手器械划船",
