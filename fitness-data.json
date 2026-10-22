@@ -1,15 +1,15 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-10-22T10:22:37.136Z",
- "revision": 26,
+ "updatedAt": "2026-10-22T10:23:08.755Z",
+ "revision": 27,
  "writer": "tautkd",
  "fitness": [
   {
    "date": "2026-10-22",
    "exercise": "碎颅者",
    "sets": 3,
-   "reps": 12,
-   "weight": 18.75,
+   "reps": 15,
+   "weight": 10,
    "id": "mvje6aak-14xklm",
    "_m": 1792664527772
   },
