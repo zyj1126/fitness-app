@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-02T09:37:32.975Z",
- "revision": 30,
+ "updatedAt": "2026-11-02T09:41:03.714Z",
+ "revision": 31,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-02",
+   "exercise": "反向飞鸟",
+   "sets": 4,
+   "reps": 12,
+   "weight": 39,
+   "id": "mvz2josf-3ee434",
+   "_m": 1793612456511
+  },
   {
    "date": "2026-10-22",
    "exercise": "杠铃二头",
