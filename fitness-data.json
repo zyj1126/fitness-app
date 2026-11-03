@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-03T06:40:52.162Z",
- "revision": 36,
+ "updatedAt": "2026-11-03T06:43:41.650Z",
+ "revision": 37,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-03",
+   "exercise": "对握下拉",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mw0bkk44-sxv7nn",
+   "_m": 1793688079828
+  },
   {
    "date": "2026-11-02",
    "exercise": "器械前束",
