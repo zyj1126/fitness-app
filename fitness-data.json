@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-03T06:53:37.293Z",
- "revision": 38,
+ "updatedAt": "2026-11-03T06:53:52.970Z",
+ "revision": 39,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-03",
+   "exercise": "正握划船",
+   "sets": 4,
+   "reps": 12,
+   "weight": 48.75,
+   "id": "mw0c0jeo-8p9ggd",
+   "_m": 1793688825408
+  },
   {
    "date": "2026-11-03",
    "exercise": "对握下拉",
