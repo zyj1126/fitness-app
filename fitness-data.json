@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-03T06:57:15.984Z",
- "revision": 41,
+ "updatedAt": "2026-11-03T06:57:37.328Z",
+ "revision": 42,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-03",
+   "exercise": "单手器械划船",
+   "sets": 3,
+   "reps": 12,
+   "weight": 35,
+   "id": "mw0c5bu1-32pztd",
+   "_m": 1793689048873
+  },
   {
    "date": "2026-11-03",
    "exercise": "正握划船",
@@ -2249,7 +2258,7 @@
  "diet": [],
  "deleted": {
   "fitness": {
-   "mw0c149m-bzjjui": 1793689033000,
+   "mw0c149m-bzjjui": 1793689053802,
    "mw0bi2ew-e1knjc": 1793688050952,
    "mw0bhun2-ip8ac2": 1793688050952,
    "mvgju18u-fs1jcq": 1792492766048,
