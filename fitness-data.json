@@ -1,7 +1,7 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-03T07:31:59.721Z",
- "revision": 48,
+ "updatedAt": "2026-11-03T07:32:27.685Z",
+ "revision": 49,
  "writer": "tautkd",
  "fitness": [
   {
@@ -39,6 +39,15 @@
    "weight": 48.75,
    "id": "mw0bkk44-sxv7nn",
    "_m": 1793688079828
+  },
+  {
+   "date": "2026-11-02",
+   "exercise": "y举",
+   "sets": 4,
+   "reps": 12,
+   "weight": 3.75,
+   "id": "mw0de8fz-bwl6aa",
+   "_m": 1793691143999
   },
   {
    "date": "2026-11-02",
