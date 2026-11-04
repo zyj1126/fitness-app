@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-04T09:44:26.652Z",
+ "updatedAt": "2026-11-04T12:08:34.091Z",
  "revision": 52,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-04",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 7,
+   "weight": 0,
+   "id": "mw1xqiio-rxdpzt",
+   "_m": 1793785775424
+  },
   {
    "date": "2026-11-04",
    "exercise": "器械上斜",
