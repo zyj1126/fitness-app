@@ -1,9 +1,27 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-04T09:38:10.517Z",
- "revision": 50,
+ "updatedAt": "2026-11-04T09:43:23.566Z",
+ "revision": 51,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-04",
+   "exercise": "器械上斜",
+   "sets": 4,
+   "reps": 10,
+   "weight": 20,
+   "id": "mw1xight-tvcp67",
+   "_m": 1793785399553
+  },
+  {
+   "date": "2026-11-04",
+   "exercise": "卧推",
+   "sets": 4,
+   "reps": 8,
+   "weight": 60,
+   "id": "mw1xd4yb-0sxphf",
+   "_m": 1793785151315
+  },
   {
    "date": "2026-11-03",
    "exercise": "对握划船",
