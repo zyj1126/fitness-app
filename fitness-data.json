@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-05T13:02:43.372Z",
- "revision": 63,
+ "updatedAt": "2026-11-05T13:03:15.454Z",
+ "revision": 64,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-05",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 10,
+   "id": "mw3k35zh-5tiqot",
+   "_m": 1793883783437
+  },
   {
    "date": "2026-11-05",
    "exercise": "绳索二头",
