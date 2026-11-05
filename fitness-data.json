@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-05T12:59:42.317Z",
- "revision": 59,
+ "updatedAt": "2026-11-05T13:00:08.301Z",
+ "revision": 60,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-05",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 15,
+   "weight": 10,
+   "id": "mw3jza9d-t1stvg",
+   "_m": 1793883602353
+  },
   {
    "date": "2026-11-05",
    "exercise": "绳索臂屈伸",
