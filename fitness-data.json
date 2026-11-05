@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-05T13:03:15.454Z",
- "revision": 64,
+ "updatedAt": "2026-11-05T13:03:58.918Z",
+ "revision": 65,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-05",
+   "exercise": "颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 8.75,
+   "id": "mw3k43sl-2r9j07",
+   "_m": 1793883827253
+  },
   {
    "date": "2026-11-05",
    "exercise": "杠铃二头",
