@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-05T09:43:41.880Z",
- "revision": 53,
+ "updatedAt": "2026-11-05T09:51:26.295Z",
+ "revision": 54,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-05",
+   "exercise": "绳索臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 6.25,
+   "id": "mw3d8odj-tgxw9u",
+   "_m": 1793872283239
+  },
   {
    "date": "2026-11-04",
    "exercise": "臂屈伸",
