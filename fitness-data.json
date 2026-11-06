@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-06T09:37:27.198Z",
- "revision": 73,
+ "updatedAt": "2026-11-06T09:39:16.088Z",
+ "revision": 74,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-06",
+   "exercise": "悬垂举腿",
+   "sets": 4,
+   "reps": 15,
+   "weight": 0,
+   "id": "mw4s8s3d-1rydit",
+   "_m": 1793957948473
+  },
   {
    "date": "2026-11-05",
    "exercise": "绳索对握",
