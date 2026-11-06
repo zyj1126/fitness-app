@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-06T09:39:16.088Z",
- "revision": 74,
+ "updatedAt": "2026-11-06T09:53:54.566Z",
+ "revision": 75,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-06",
+   "exercise": "反向山羊挺身",
+   "sets": 4,
+   "reps": 15,
+   "weight": 0,
+   "id": "mw4srng0-74yvxz",
+   "_m": 1793958828912
+  },
   {
    "date": "2026-11-06",
    "exercise": "悬垂举腿",
