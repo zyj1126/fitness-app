@@ -1,17 +1,17 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-10T08:16:47.934Z",
- "revision": 86,
+ "updatedAt": "2026-11-10T08:17:14.737Z",
+ "revision": 87,
  "writer": "tautkd",
  "fitness": [
   {
    "date": "2026-11-10",
-   "exercise": "单手器械下拉",
+   "exercise": "单手反手下拉",
    "sets": 3,
    "reps": 12,
    "weight": 35,
-   "id": "mwaf25vu-dnbth0",
-   "_m": 1794298601802
+   "id": "mwaf2q6f-27dzs2",
+   "_m": 1794298628103
   },
   {
    "date": "2026-11-10",
@@ -2402,6 +2402,7 @@
  "diet": [],
  "deleted": {
   "fitness": {
+   "mwaf25vu-dnbth0": 1794298632292,
    "mwaert0u-5vh8tw": 1794298167480,
    "mw0c6e3u-gn1gl2": 1793689127247,
    "mw0c5zpp-xgm9za": 1793689127247,
