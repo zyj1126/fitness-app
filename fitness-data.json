@@ -1,7 +1,7 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-10T08:09:08.231Z",
- "revision": 83,
+ "updatedAt": "2026-11-10T08:09:31.087Z",
+ "revision": 84,
  "writer": "tautkd",
  "fitness": [
   {
@@ -2384,7 +2384,7 @@
  "diet": [],
  "deleted": {
   "fitness": {
-   "mwaert0u-5vh8tw": 1794298145922,
+   "mwaert0u-5vh8tw": 1794298167480,
    "mw0c6e3u-gn1gl2": 1793689127247,
    "mw0c5zpp-xgm9za": 1793689127247,
    "mw0c5bu1-32pztd": 1793689112787,
