@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-12T06:17:39.645Z",
- "revision": 92,
+ "updatedAt": "2026-11-12T06:18:06.137Z",
+ "revision": 93,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-12",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 4,
+   "weight": 70,
+   "id": "mwd5ozlf-70digq",
+   "_m": 1794464269107
+  },
   {
    "date": "2026-11-10",
    "exercise": "单手器械划船",
