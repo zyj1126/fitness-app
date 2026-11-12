@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-12T06:33:59.477Z",
- "revision": 95,
+ "updatedAt": "2026-11-12T06:43:19.471Z",
+ "revision": 96,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-12",
+   "exercise": "哑铃上斜",
+   "sets": 3,
+   "reps": 8,
+   "weight": 20,
+   "id": "mwd6ledi-4k4rlv",
+   "_m": 1794465781254
+  },
   {
    "date": "2026-11-12",
    "exercise": "卧推",
