@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-12T06:52:18.648Z",
- "revision": 97,
+ "updatedAt": "2026-11-12T07:00:26.657Z",
+ "revision": 98,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-12",
+   "exercise": "臂屈伸",
+   "sets": 3,
+   "reps": 8,
+   "weight": 0,
+   "id": "mwd77pre-gt6ngr",
+   "_m": 1794466822442
+  },
   {
    "date": "2026-11-12",
    "exercise": "哑铃上斜",
