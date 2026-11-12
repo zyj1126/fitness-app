@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-12T06:33:38.333Z",
- "revision": 94,
+ "updatedAt": "2026-11-12T06:33:59.477Z",
+ "revision": 95,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-12",
+   "exercise": "卧推",
+   "sets": 3,
+   "reps": 8,
+   "weight": 60,
+   "id": "mwd69mf4-h0yp9r",
+   "_m": 1794465231808
+  },
   {
    "date": "2026-11-12",
    "exercise": "卧推",
