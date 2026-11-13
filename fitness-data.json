@@ -1,9 +1,18 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-13T08:02:40.190Z",
- "revision": 99,
+ "updatedAt": "2026-11-13T08:17:46.251Z",
+ "revision": 100,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-13",
+   "exercise": "绳索二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 21.25,
+   "id": "mwepeo87-eykt4w",
+   "_m": 1794557846311
+  },
   {
    "date": "2026-11-13",
    "exercise": "绳索臂屈伸",
