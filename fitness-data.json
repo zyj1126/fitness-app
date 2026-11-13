@@ -1,9 +1,27 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-13T08:17:46.251Z",
- "revision": 100,
+ "updatedAt": "2026-11-13T08:44:58.395Z",
+ "revision": 101,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-13",
+   "exercise": "杠铃二头",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "mweqdu1e-tyqksz",
+   "_m": 1794559486802
+  },
+  {
+   "date": "2026-11-13",
+   "exercise": "碎颅者",
+   "sets": 3,
+   "reps": 12,
+   "weight": 20,
+   "id": "mweqdm92-xm55t9",
+   "_m": 1794559476710
+  },
   {
    "date": "2026-11-13",
    "exercise": "绳索二头",
