@@ -1,9 +1,27 @@
 {
  "schema": "fitness-sync/1",
- "updatedAt": "2026-11-13T08:44:58.395Z",
- "revision": 101,
+ "updatedAt": "2026-11-13T09:04:40.086Z",
+ "revision": 102,
  "writer": "tautkd",
  "fitness": [
+  {
+   "date": "2026-11-13",
+   "exercise": "对握提拉",
+   "sets": 3,
+   "reps": 20,
+   "weight": 13.75,
+   "id": "mwer2t5r-xx2p5w",
+   "_m": 1794560652063
+  },
+  {
+   "date": "2026-11-13",
+   "exercise": "颈后臂屈伸",
+   "sets": 3,
+   "reps": 12,
+   "weight": 8.75,
+   "id": "mwer2etg-25dgic",
+   "_m": 1794560633476
+  },
   {
    "date": "2026-11-13",
    "exercise": "杠铃二头",
